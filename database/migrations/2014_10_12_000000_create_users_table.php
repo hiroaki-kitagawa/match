@@ -20,9 +20,9 @@ class CreateUsersTable extends Migration
             $table->string('password', 256);
             $table->string('profile_text', 2048);
             $table->string('profile_image', 4096);
-            $table->timestamps('deleted_at');
             $table->rememberToken();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

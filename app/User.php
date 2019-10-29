@@ -28,4 +28,13 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * 論理削除実行時に更新する値
+     *
+     * @var array
+     */
+    protected $deleted = [
+        'deleted_at'
+    ];
 }

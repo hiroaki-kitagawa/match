@@ -21,7 +21,8 @@ class JobsTableSeeder extends Seeder
                 'reward_max' => '200000',
                 'status' => '0',
                 'detail' => 'テスト単発案件のお仕事です。',
-
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
             ],
             [
                 'id' => '2',
@@ -32,7 +33,8 @@ class JobsTableSeeder extends Seeder
                 'reward_max' => '700000',
                 'status' => '1',
                 'detail' => 'テストサービス開発案件のお仕事です。',
-
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
             ],
         ]);
         factory(App\Job::class, 2)->create();

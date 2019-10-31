@@ -15,7 +15,18 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('user_id')->nullable();
+            $table->string('title',256);
+            $table->integer('type');
+            $table->integer('reward_min');
+            $table->integer('reward_max');
+            $table->integer('status');
+            $table->string('detail', 4096);
+            $table->softDeletes();
             $table->timestamps();
+
+            // 外部キー制約
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

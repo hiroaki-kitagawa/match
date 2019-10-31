@@ -11,13 +11,17 @@ class User extends Authenticatable
     use Notifiable;
     use SoftDeletes;
 
+    protected $gurded = array('id');
+
+    public $timestamps = true;
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password', 'profile_text', 'profile_image','created_at', 'updated_at'
     ];
 
     /**

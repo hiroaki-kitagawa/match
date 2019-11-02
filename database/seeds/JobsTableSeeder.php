@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Carbon\Carbon;
 
 class JobsTableSeeder extends Seeder
 {
@@ -11,6 +12,7 @@ class JobsTableSeeder extends Seeder
      */
     public function run()
     {
+        $carbon = new Carbon();
         DB::table('jobs')->insert([
             [
                 'id' => '1',
@@ -21,6 +23,7 @@ class JobsTableSeeder extends Seeder
                 'reward_max' => '200000',
                 'status' => '0',
                 'detail' => 'テスト単発案件のお仕事です。',
+                'deadline' => $carbon->today()->addDays(30),
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
@@ -33,6 +36,7 @@ class JobsTableSeeder extends Seeder
                 'reward_max' => '700000',
                 'status' => '1',
                 'detail' => 'テストサービス開発案件のお仕事です。',
+                'deadline' => $carbon->today()->addDays(30),
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],

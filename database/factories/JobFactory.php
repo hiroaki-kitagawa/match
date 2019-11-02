@@ -11,5 +11,6 @@ $factory->define(App\Job::class, function (Faker $faker) {
         'reward_max' => $faker->numberBetween(200000, 1000000),
         'status' => $faker->numberBetween(0,2),
         'detail' => $faker->text(256),
+        'deadline' => $faker->dateTimeBetween($startDate = 'now', $endDate = '45 days')
     ];
 });

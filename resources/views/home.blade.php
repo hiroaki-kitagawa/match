@@ -13,13 +13,23 @@
 
                 <div class="tab-content">
                     <ul class="nav nav-tabs nav-justified">
-                        <li class="active"><a href="#">すべて</a></li>
-                        <li><a href="#">単発</a></li>
-                        <li><a href="#">サービス開発</a></li>
+                        <li class="active"><a href="#all-jobs" data-toggle="tab">すべて</a></li>
+                        <li><a href="#single-jobs" data-toggle="tab">単発</a></li>
+                        <li><a href="#service-jobs" data-toggle="tab">サービス開発</a></li>
                     </ul>
                 </div>
                 <div class="panel-body">
-                    
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="all-jobs">
+                            すべて
+                        </div>
+                        <div class="tab-pane" id="single-jobs">
+                            単発
+                        </div>
+                        <div class="tab-pane" id="service-jobs">
+                            サービス開発
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

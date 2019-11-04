@@ -14,6 +14,7 @@ class ProfileController extends Controller
     public function index()
     {
         //ユーザのプロフィール情報を表示する
+        return view('profile/index');
     }
 
     /**

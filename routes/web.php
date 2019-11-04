@@ -24,3 +24,7 @@ Route::resource('messages', 'MessagesController', ['only' => ['index', 'create',
     'store', 'show', 'edit', 'update', 'destroy']]);
 Route::resource('password', 'PasswordController', ['only' => ['index', 'create',
     'store', 'show', 'edit', 'update', 'destroy']]);
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

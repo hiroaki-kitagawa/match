@@ -1,0 +1,20 @@
+{
+  "Login": "ログイン",
+  "Logout": "ログアウト",
+  "Register": "新規登録",
+  "BasicInfo": "基本情報",
+  "FixedIncome": "手取収入(月額)",
+  "SaveInvest": "貯蓄･投資額(月額)",
+  "Next": "次へ",
+  "Name": "お名前",
+  "E-Mail Address": "メールアドレス",
+  "Profile Text": "プロフィール（自己紹介）",
+  "Profile Image": "プロフィール画像",
+  "Password": "パスワード",
+  "Confirm Password": "パスワード(確認)",
+  "Remember Me": "ログイン情報を記憶する",
+  "Forgot Your Password?": "パスワードを忘れた方はこちら",
+  "Reset Password": "パスワード初期化",
+  "Send Password Reset Link": "初期化リンクをメールで送信する"
+
+}

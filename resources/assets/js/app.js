@@ -15,8 +15,13 @@ window.Vue = require('vue');
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component( 'example-component', require( './components/ExampleComponent.vue' ));
+// vue-loader-13.0.0にてvueコンポーネントがデフォルトでesModuleとして設定される。
+// グローバルコンポーネントで.default指定すると正常に稼働する。
+// ただし、飽くまで暫定対応
+Vue.component('all-jobs', require('./components/AllJobs.vue').default);
 
 const app = new Vue({
     el: '#app'
 });
+

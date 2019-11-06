@@ -18,7 +18,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/mypage', function () {return  view('mypage'); });
 Route::resource('profile', 'ProfileController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 Route::resource('application', 'ApplicationController', ['only' => ['index', 'show', 'update' ,'destroy']]);
 Route::resource('jobs', 'JobsController', ['only' => ['index', 'create',

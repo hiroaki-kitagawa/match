@@ -20,7 +20,7 @@
     "resolve-url-loader": "^3.1.0",
     "sass": "^1.23.3",
     "sass-loader": "^8.0.0",
-    "vue": "^2.5.7",
+    "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
   "name": "laravel",
@@ -32,7 +32,8 @@
   },
   "dependencies": {
     "install": "^0.13.0",
-    "npm": "^6.12.1"
+    "npm": "^6.13.0",
+    "vuex": "^3.1.1"
   },
   "repository": {
     "type": "git",

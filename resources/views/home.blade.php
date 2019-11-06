@@ -10,7 +10,6 @@
                 <button class="search_button">検索</button>
             </div>
             <div class="panel panel-default">
-
                 <div class="tab-content">
                     <ul class="nav nav-tabs nav-justified">
                         <li class="active"><a href="#all-jobs" data-toggle="tab">すべて</a></li>
@@ -21,7 +20,6 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="all-jobs">
-                            すべて
                             <all-jobs></all-jobs>
                         </div>
                         <div class="tab-pane" id="single-jobs">

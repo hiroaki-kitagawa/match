@@ -15,6 +15,7 @@ class JobsController extends Controller
     {
         // 登録されたお仕事案件一覧を表示する
         // フロントで表示するvueおよびaxiosに渡すJSONデータを返す
+
         // pagenateメソッドを使用してページネーションに表示するアイテムを準備する
     }
 

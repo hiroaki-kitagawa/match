@@ -1842,9 +1842,22 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
+  data: function data() {
+    return {
+      all_jobs: {}
+    };
+  },
   mounted: function mounted() {
-    console.log('Component mounted.');
+    var self = this;
+    var url = '/ajax/jobs';
+    axios.get(url).then(function (response) {
+      self.all_jobs = response.data;
+    });
   }
 });
 
@@ -32705,7 +32718,13 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [_vm._v("すべての仕事")])
+  return _c(
+    "div",
+    _vm._l(_vm.all_jobs, function(jobs) {
+      return _c("div", [_vm._v("\n        " + _vm._s(jobs) + "\n    ")])
+    }),
+    0
+  )
 }
 var staticRenderFns = []
 render._withStripped = true

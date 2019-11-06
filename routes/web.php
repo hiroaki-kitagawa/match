@@ -16,6 +16,9 @@ Route::get('/', function () {
 });
 
 
+Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');
+
 Route::resource('profile', 'ProfileController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 Route::resource('application', 'ApplicationController', ['only' => ['index', 'show', 'update' ,'destroy']]);
 Route::resource('jobs', 'JobsController', ['only' => ['index', 'create',
@@ -24,7 +27,3 @@ Route::resource('messages', 'MessagesController', ['only' => ['index', 'create',
     'store', 'show', 'edit', 'update', 'destroy']]);
 Route::resource('password', 'PasswordController', ['only' => ['index', 'create',
     'store', 'show', 'edit', 'update', 'destroy']]);
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');

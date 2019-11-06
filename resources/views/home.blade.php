@@ -22,6 +22,7 @@
                     <div class="tab-content">
                         <div class="tab-pane active" id="all-jobs">
                             すべて
+                            <all-jobs></all-jobs>
                         </div>
                         <div class="tab-pane" id="single-jobs">
                             単発

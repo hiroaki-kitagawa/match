@@ -19,7 +19,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedInteger('receiver_id')->nullable();
             $table->unsignedInteger('job_id')->nullable();
             $table->string('text', 4096);
-            $table->integer('type');
+            $table->string('type', 256);
             $table->timestamps();
             $table->softDeletes();
 

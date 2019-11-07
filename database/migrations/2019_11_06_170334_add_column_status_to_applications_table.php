@@ -14,7 +14,7 @@ class AddColumnStatusToApplicationsTable extends Migration
     public function up()
     {
         Schema::table('applications', function (Blueprint $table) {
-            $table->integer('status');
+            $table->string('status', 256);
         });
     }
 

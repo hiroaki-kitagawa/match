@@ -23,10 +23,10 @@
                             <all-jobs></all-jobs>
                         </div>
                         <div class="tab-pane" id="single-jobs">
-                            単発
+                            <single-jobs></single-jobs>
                         </div>
                         <div class="tab-pane" id="service-jobs">
-                            サービス開発
+                            <service-jobs></service-jobs>
                         </div>
                     </div>
                 </div>

@@ -17,10 +17,10 @@ class CreateJobsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->string('title',256);
-            $table->integer('type');
+            $table->string('type', 256);
             $table->integer('reward_min');
             $table->integer('reward_max');
-            $table->integer('status');
+            $table->string('status', 256);
             $table->string('detail', 4096);
             $table->softDeletes();
             $table->timestamps();
@@ -37,6 +37,7 @@ class CreateJobsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('jobs');
+            Schema::dropIfExists('jobs');
+
     }
 }

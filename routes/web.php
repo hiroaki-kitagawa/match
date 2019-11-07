@@ -20,7 +20,9 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/mypage', function () {return  view('mypage'); });
 
-Route::get('ajax/jobs', 'Ajax\JobsController@index');
+Route::get('ajax/job_all', 'Ajax\JobsController@index_all');
+Route::get('ajax/job_single', 'Ajax\JobsController@index_single');
+Route::get('ajax/job_service', 'Ajax\JobsController@index_service');
 
 Route::resource('profile', 'ProfileController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
 Route::resource('application', 'ApplicationController', ['only' => ['index', 'show', 'update' ,'destroy']]);

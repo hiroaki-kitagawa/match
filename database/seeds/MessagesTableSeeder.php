@@ -18,7 +18,7 @@ class MessagesTableSeeder extends Seeder
                 'job_id' => '1',
                 'receiver_id' => null,
                 'text' => 'テスト案件1のメッセージです。',
-                'type' => '0',
+                'type' => '公開',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
@@ -28,11 +28,30 @@ class MessagesTableSeeder extends Seeder
                 'job_id' => '2',
                 'receiver_id' => '2',
                 'text' => 'テスト案件2のメッセージです。',
-                'type' => '1',
+                'type' => 'DM',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'id' => '3',
+                'sender_id' => '3',
+                'job_id' => '3',
+                'receiver_id' => '1',
+                'text' => 'テスト案件3のメッセージです。',
+                'type' => 'DM',
+                'created_at' => date("Y-m-d H:i:s"),
+                'updated_at' => date("Y-m-d H:i:s")
+            ],
+            [
+                'id' => '4',
+                'sender_id' => '3',
+                'job_id' => '4',
+                'receiver_id' => '2',
+                'text' => 'テスト案件4のメッセージです。',
+                'type' => 'DM',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
         ]);
-        factory(App\Message::class, 2)->create();
     }
 }

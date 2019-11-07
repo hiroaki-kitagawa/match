@@ -20,8 +20,15 @@ Vue.component( 'example-component', require( './components/ExampleComponent.vue'
 // グローバルコンポーネントで.default指定すると正常に稼働する。
 // ただし、飽くまで暫定対応
 Vue.component('all-jobs', require('./components/AllJobs.vue').default);
+Vue.component('single-jobs', require( './components/SingleJobs.vue' ).default );
+Vue.component('service-jobs', require( './components/ServiceJobs.vue' ).default );
+
+// グローバルフィルター
+// 金額を桁区切りで表示する
+Vue.filter( 'moneyDelimiter', function ( value ) {
+    return value.toLocaleString();
+} );
 
 const app = new Vue({
     el: '#app'
 });
-

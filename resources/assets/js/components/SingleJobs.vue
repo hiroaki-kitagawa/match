@@ -4,7 +4,7 @@
             案件名：{{ job.title }} <br>
             内容：{{ job.detail }} <br>
             種別：{{ job.type }} <br>
-            報酬：{{ job.reward_min | moneyDelimiter }} 〜 {{ job.reward_max | moneyDelimiter  }}
+            報酬：{{ job.reward_min | moneyDelimiter  }} 〜 {{ job.reward_max | moneyDelimiter  }}
             <hr>
         </div>
     </div>
@@ -19,7 +19,7 @@
         },
         mounted() {
             var self = this;
-            var url = '/ajax/job_all';
+            var url = '/ajax/job_single';
             axios.get(url).then(function(response){
                 self.jobs = response.data;
             });

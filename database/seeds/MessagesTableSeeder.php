@@ -18,7 +18,7 @@ class MessagesTableSeeder extends Seeder
                 'job_id' => '1',
                 'receiver_id' => null,
                 'text' => 'テスト案件1のメッセージです。',
-                'type' => '公開',
+                'type' => 'PM',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
@@ -53,5 +53,6 @@ class MessagesTableSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")
             ],
         ]);
+        factory(App\Message::class, 50)->create();
     }
 }

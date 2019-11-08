@@ -20,13 +20,14 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="all-jobs">
-                            <all-jobs></all-jobs>
+                            <home-pagenation ajaxpath="job_all"></home-pagenation>
+
                         </div>
                         <div class="tab-pane" id="single-jobs">
-                            <single-jobs></single-jobs>
+                            <home-pagenation ajaxpath="job_single"></home-pagenation>
                         </div>
                         <div class="tab-pane" id="service-jobs">
-                            <service-jobs></service-jobs>
+                            <home-pagenation ajaxpath="job_service"></home-pagenation>
                         </div>
                     </div>
                 </div>

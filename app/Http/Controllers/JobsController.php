@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Job;
+use App\User;
+use App\Http\Requests;
+
 class JobsController extends Controller
 {
     /**
@@ -13,10 +17,7 @@ class JobsController extends Controller
      */
     public function index()
     {
-        // 登録されたお仕事案件一覧を表示する
-        // フロントで表示するvueおよびaxiosに渡すJSONデータを返す
-
-        // pagenateメソッドを使用してページネーションに表示するアイテムを準備する
+        
     }
 
     /**
@@ -49,6 +50,9 @@ class JobsController extends Controller
     public function show($id)
     {
         // 選択したお仕事案件の詳細画面を表示する
+        $job = Job::findOrFail($id);
+        $user = User::find($job->user_id);
+        return view('jobs.show', compact('job', 'user'));
     }
 
     /**

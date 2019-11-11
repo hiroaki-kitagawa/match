@@ -5,10 +5,6 @@
     <div class="row">
         @include('sidebar')
         <div class="col-md-8">
-            <div>
-                <input name="search_job" placeholder="お仕事を探す" type="text" class="search_box">
-                <button class="search_button">検索</button>
-            </div>
             <div class="panel panel-default">
                 <div class="tab-content">
                     <ul class="nav nav-tabs nav-justified">
@@ -21,16 +17,18 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="added-jobs">
-                            登録したお仕事
+                            {{-- 登録したお仕事 --}}
+                            <job-list ajaxpath="my_job_submit"></job-list>
                         </div>
                         <div class="tab-pane" id="apply-jobs">
-                            応募したお仕事
+                            {{-- 応募したお仕事 --}}
+                            <job-list ajaxpath="my_job_applied"></job-list>
                         </div>
                         <div class="tab-pane" id="public-messages">
-                            パブリックメッセージ
+                            <my-message ajaxpath="my_public_message"></my-message>
                         </div>
                         <div class="tab-pane" id="direct-messages">
-                            ダイレクトメッセージ
+                            <my-message ajaxpath="my_direct_message"></my-message>
                         </div>
                     </div>
                 </div>

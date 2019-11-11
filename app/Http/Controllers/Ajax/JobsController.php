@@ -4,25 +4,67 @@ namespace App\Http\Controllers\Ajax;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 use app\Library\Common;
 
 class JobsController extends Controller
 {
 
+
     public function job_all() {
-        return \App\Job::paginate(10);
+        $jobs = \App\Job::with('user');
+        return $jobs->paginate(10);
     }
 
     public function job_single() {
-        $query = \App\Job::query()->where('type', '単発案件');
-        return $query->paginate(10);
+        // $jobs = \App\Job::query()->where('type', '単発案件');
+        $jobs = \App\Job::with('user');
+        $jobs = $jobs->where('type', '単発案件');
+        return $jobs->paginate(10);
     }
 
     public function job_service() {
-        $query = \App\Job::query()->where('type', 'サービス開発案件');
-        return $query->paginate(10);
+        // $query = \App\Job::query()->where('type', 'サービス開発案件');
+        $jobs = \App\Job::with('user');
+        $jobs = $jobs->where('type', 'サービス開発案件');
+        return $jobs->paginate(10);
     }
+
+    public function my_job_submit() {
+        $id = Auth::id();
+        $jobs = \App\Job::with('user');
+        $jobs = $jobs->where('user_id', $id)->paginate(10);
+        return $jobs;
+    }
+
+    public function my_job_applied() {
+        $id = Auth::id();
+        $jobs = \App\Job::with('user', 'applications');
+        $jobs = $jobs->whereHas('applications' , function($query) use ($id) {
+            $query->where('user_id', $id);
+        })->paginate(10);
+        return $jobs;
+    }
+
+    public function my_public_message() {
+        $id = Auth::id();
+        $messages = \App\Message::with('job')->where('type', 'PM')
+                    ->where('sender_id', $id)
+                    ->groupBy('job_id')
+                    ->paginate(10);
+        return $messages;
+    }
+
+    public function my_direct_message() {
+        $id = Auth::id();
+        $messages = \App\Message::with('job')->where('type', 'DM')
+                    ->where('receiver_id', $id)
+                    ->groupBy('job_id')
+                    ->paginate(10);
+        return $messages;
+    }
+
 
 
 }

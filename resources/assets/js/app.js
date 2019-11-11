@@ -7,8 +7,8 @@
 
 require('./bootstrap');
 
-
 window.Vue = require( 'vue' );
+import dayjs from 'dayjs'
 
 
 /**
@@ -20,17 +20,21 @@ window.Vue = require( 'vue' );
 Vue.component( 'example-component', require( './components/ExampleComponent.vue' ));
 // vue-loader-13.0.0にてvueコンポーネントがデフォルトでesModuleとして設定される。
 // グローバルコンポーネントで.default指定すると正常に稼働する。
-// ただし、飽くまで暫定対応
-Vue.component('home-pagenation', require( './components/HomePagenation.vue').default );
-Vue.component('v-pagenation', require( './components/v-pagenation.vue').default );
-Vue.component('single-jobs', require( './components/SingleJobs.vue' ).default );
-Vue.component('service-jobs', require( './components/ServiceJobs.vue' ).default );
+Vue.component( 'job-list', require( './components/JobList.vue').default );
+Vue.component( 'v-pagination', require( './components/v-pagination.vue').default );
+Vue.component( 'my-message', require( './components/my-message.vue' ).default );
 
 
-// グローバルフィルター
 // 金額を桁区切りで表示する
 Vue.filter( 'moneyDelimiter', function ( value ) {
     return value.toLocaleString();
+} );
+
+// あと何日かを計算する
+Vue.filter( 'deadlinediff', function ( value ) {
+    const today = dayjs().format( 'YYYY-MM-DD' );
+    return dayjs(value).diff( today, 'days' );
+
 } );
 
 const app = new Vue({

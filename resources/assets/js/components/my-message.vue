@@ -1,14 +1,17 @@
 <template>
     <div>
         <div v-for="item in items.data" :key="items.key">
-            案件名：{{ item.title }} <br>
-            内容：{{ item.detail }} <br>
-            種別：{{ item.type }} <br>
-            報酬：{{ item.reward_min | moneyDelimiter }} 〜 {{ item.reward_max | moneyDelimiter  }}
+            <div>
+
+            </div>
+            <div>
+                <a v-bind:href="'/jobs/' + item.id">{{ item.job.title }}</a> <br>
+                {{ item.text }}
+            </div>
             <hr>
         </div>
         <br>
-        <v-pagenation :data="items" @move-page="movePage($event)"></v-pagenation>
+        <v-pagination :data="items" @move-page="movePage($event)"></v-pagination>
     </div>
 </template>
 
@@ -18,7 +21,7 @@
         data() {
             return {
                 page: 1,
-                items: [],
+                items: []
             }
         },
         methods: {
@@ -37,6 +40,6 @@
         },
         mounted() {
             this.getItems();
-        }
+        },
     }
 </script>

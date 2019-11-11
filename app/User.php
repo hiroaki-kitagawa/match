@@ -47,4 +47,22 @@ class User extends Authenticatable
     {
         $this->notify(new CustomResetPassword($token));
     }
+
+    /**
+     * リレーション
+     */
+    public function jobs()
+    {
+        return $this->hasMany('App\Job');
+    }
+
+    public function messages()
+    {
+        return $this->hasMany('App\Message');
+    }
+
+    public function applications()
+    {
+        return $this->hasMany('App\Application');
+    }
 }

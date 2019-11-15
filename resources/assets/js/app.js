@@ -23,6 +23,7 @@ Vue.component( 'example-component', require( './components/ExampleComponent.vue'
 Vue.component( 'job-list', require( './components/JobList.vue').default );
 Vue.component( 'v-pagination', require( './components/v-pagination.vue').default );
 Vue.component( 'my-message', require( './components/my-message.vue' ).default );
+Vue.component( 'send-public-message', require( './components/send-public-message.vue' ).default );
 
 
 // 金額を桁区切りで表示する

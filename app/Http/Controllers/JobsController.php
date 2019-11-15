@@ -6,7 +6,10 @@ use Illuminate\Http\Request;
 
 use App\Job;
 use App\User;
+use App\Message;
 use App\Http\Requests;
+use App\Http\Controllers\DB;
+use Illuminate\Support\Facades\Auth;
 
 class JobsController extends Controller
 {
@@ -17,8 +20,10 @@ class JobsController extends Controller
      */
     public function index()
     {
-        
+        // お仕事案件の新規登録ページを表示する
+        return view('jobs.add');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -27,8 +32,9 @@ class JobsController extends Controller
      */
     public function create()
     {
-        // お仕事案件の新規登録ページを表示する
+
     }
+
 
     /**
      * Store a newly created resource in storage.
@@ -39,6 +45,19 @@ class JobsController extends Controller
     public function store(Request $request)
     {
         // お仕事案件の新規登録ページから案件情報を保存(POST)する
+        $job = new Job;
+        $job->user_id = Auth::id();
+        $job->title = $request->title;
+        $job->type = $request->type;
+        $job->reward_min = $request->reward_min;
+        $job->reward_max = $request->reward_max;
+        $job->status = '応募中';
+        $job->detail = $request->detail;
+        $job->deadline = $request->deadline;
+        $job->save();
+
+        session()->flash('added_message', 'お仕事を登録しました');
+        return redirect('mypage');
     }
 
     /**
@@ -51,8 +70,17 @@ class JobsController extends Controller
     {
         // 選択したお仕事案件の詳細画面を表示する
         $job = Job::findOrFail($id);
-        $user = User::find($job->user_id);
-        return view('jobs.show', compact('job', 'user'));
+        $owner = User::find($job->user_id);
+        $messages = Message::with('user')->where('job_id', $id)->where('type','PM')
+                            ->orderBy('created_at', 'desc')
+                            ->get();
+
+        return view('jobs.show', compact('job', 'owner', 'messages'));
+    }
+
+    public function view_message()
+    {
+
     }
 
     /**

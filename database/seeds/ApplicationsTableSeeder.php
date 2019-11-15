@@ -45,6 +45,6 @@ class ApplicationsTableSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")
             ],
         ]);
-        factory(App\Application::class, 10)->create();
+        // factory(App\Application::class, 10)->create();
     }
 }

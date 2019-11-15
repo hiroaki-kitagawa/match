@@ -67,6 +67,6 @@ class JobsTableSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")
             ],
         ]);
-        factory(App\Job::class, 100)->create();
+        // factory(App\Job::class, 100)->create();
     }
 }

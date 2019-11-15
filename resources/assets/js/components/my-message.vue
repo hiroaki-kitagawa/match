@@ -5,7 +5,6 @@
 
             </div>
             <div>
-                <a v-bind:href="'/jobs/' + item.id">{{ item.job.title }}</a> <br>
                 {{ item.text }}
             </div>
             <hr>

@@ -14,7 +14,7 @@ class MessagesTableSeeder extends Seeder
         DB::table('messages')->insert([
             [
                 'id' => '1',
-                'sender_id' => '1',
+                'user_id' => '1',
                 'job_id' => '1',
                 'receiver_id' => null,
                 'text' => 'テスト案件1のメッセージです。',
@@ -24,7 +24,7 @@ class MessagesTableSeeder extends Seeder
             ],
             [
                 'id' => '2',
-                'sender_id' => '3',
+                'user_id' => '3',
                 'job_id' => '2',
                 'receiver_id' => '2',
                 'text' => 'テスト案件2のメッセージです。',
@@ -34,7 +34,7 @@ class MessagesTableSeeder extends Seeder
             ],
             [
                 'id' => '3',
-                'sender_id' => '3',
+                'user_id' => '3',
                 'job_id' => '3',
                 'receiver_id' => '1',
                 'text' => 'テスト案件3のメッセージです。',
@@ -44,8 +44,8 @@ class MessagesTableSeeder extends Seeder
             ],
             [
                 'id' => '4',
-                'sender_id' => '3',
-                'job_id' => '4',
+                'user_id' => '3',
+                'job_id' => '2',
                 'receiver_id' => '2',
                 'text' => 'テスト案件4のメッセージです。',
                 'type' => 'DM',
@@ -54,25 +54,25 @@ class MessagesTableSeeder extends Seeder
             ],
             [
                 'id' => '5',
-                'sender_id' => '1',
-                'job_id' => '10',
+                'user_id' => '1',
+                'job_id' => '1',
                 'receiver_id' => null,
-                'text' => 'テスト案件10のメッセージです。',
+                'text' => 'テスト案件1のメッセージです。',
                 'type' => 'PM',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
             [
                 'id' => '6',
-                'sender_id' => '1',
-                'job_id' => '20',
+                'user_id' => '1',
+                'job_id' => '2',
                 'receiver_id' => null,
-                'text' => 'テスト案件20のメッセージです。',
+                'text' => 'テスト案件2のメッセージです。',
                 'type' => 'PM',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
         ]);
-        factory(App\Message::class, 200)->create();
+        // factory(App\Message::class, 200)->create();
     }
 }

@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
+use App\User;
+use App\Message;
 use Illuminate\Http\Request;
 
 class MessagesController extends Controller
@@ -13,7 +16,7 @@ class MessagesController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -23,7 +26,6 @@ class MessagesController extends Controller
      */
     public function create()
     {
-        // 新しいメッセージを表示
     }
 
     /**
@@ -32,9 +34,16 @@ class MessagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
         //新しいメッセージを投稿(POST)する。
+        $message = new Message;
+        $message->user_id = Auth::id();
+        $message->job_id = $id;
+        $message->text = $request->public_message;
+        $message->type = 'PM';
+        $message->save();
+
     }
 
 

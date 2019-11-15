@@ -39,33 +39,6 @@
                             </div>
                         </div>
 
-                        <div class="form-group{{ $errors->has('profile_text') ? ' has-error' : '' }}">
-                            <label for="profile_text" class="col-md-4 control-label">{{ __('Profile Text') }}</label>
-
-                            <div class="col-md-6">
-                                <textarea id="profile_text" type="text" class="form-control" name="profile_text" value="{{ old('profile_text') }}" rows="5" cols="30" wrap="soft" required></textarea>
-
-                                @if ($errors->has('profile_text'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('profile_text') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group{{ $errors->has('profile_image') ? ' has-error' : '' }}">
-                            <label for="profile_image" class="col-md-4 control-label">{{ __('Profile Image') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="profile_image" type="file" name="profile_image">
-
-                                @if ($errors->has('profile_image'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('profile_image') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                             <label for="password" class="col-md-4 control-label">{{ __('Password') }}</label>

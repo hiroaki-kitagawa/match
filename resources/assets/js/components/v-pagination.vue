@@ -2,11 +2,11 @@
 
     <ul class="pagination">
         <li class="page-item">
-            <a class="page-link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>
+            <a class="page-link" href="#" v-if="data.current_page > 0" @click.prevent="move(data.current_page-1)">前へ</a>
         </li>
         <li class="page-item"><span>{{data.current_page}}/{{data.last_page}}</span></li>
         <li class="page-item">
-            <a class="page-link" href="#" @click.prevent="move(data.current_page+1)">次へ</a>
+            <a class="page-link" href="#" v-if="data.current_page < data.last_page" @click.prevent="move(data.current_page+1)">次へ</a>
         </li>
     </ul>
 

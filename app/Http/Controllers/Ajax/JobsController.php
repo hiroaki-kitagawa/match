@@ -18,14 +18,12 @@ class JobsController extends Controller
     }
 
     public function job_single() {
-        // $jobs = \App\Job::query()->where('type', '単発案件');
         $jobs = \App\Job::with('user');
         $jobs = $jobs->where('type', '単発案件');
         return $jobs->paginate(10);
     }
 
     public function job_service() {
-        // $query = \App\Job::query()->where('type', 'サービス開発案件');
         $jobs = \App\Job::with('user');
         $jobs = $jobs->where('type', 'サービス開発案件');
         return $jobs->paginate(10);
@@ -64,6 +62,9 @@ class JobsController extends Controller
                     ->paginate(10);
         return $messages;
     }
+
+    
+
 
 
 

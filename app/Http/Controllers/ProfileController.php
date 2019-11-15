@@ -4,8 +4,14 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\User;
+
+use Illuminate\Support\Facades\Auth;
+use Validator;
+
 class ProfileController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -13,8 +19,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        //ユーザのプロフィール情報を表示する
-        return view('profile/index');
+
     }
 
     /**
@@ -24,7 +29,7 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //ユーザのプロフィール新規作成ページを表示
+
     }
 
     /**
@@ -35,7 +40,7 @@ class ProfileController extends Controller
      */
     public function store(Request $request)
     {
-        //プロフィール新規登録フォームから登録(POST)を実行する
+
     }
 
     /**
@@ -55,9 +60,11 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request)
     {
         //プロフィール編集ページを表示
+        $user = User::find(Auth::id());
+        return view('profile.edit', ['user' => $user]);
     }
 
     /**
@@ -67,9 +74,18 @@ class ProfileController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
         //プロフィール編集ページからPOST(PUT)されて更新する
+        $user = User::find(Auth::id());
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $path = $request->file('profile_image')->store('public/avatar');
+        $user->profile_image = basename($path);
+        $user->profile_text = $request->profile_text;
+        $user->save();
+
+        return view('profile.edit', compact('user'))->with('filename', basename($path));
     }
 
     /**

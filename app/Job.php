@@ -11,16 +11,6 @@ class Job extends Model
 
     protected $gurded = array('id');
 
-
-    /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
-    protected $fillable = [
-        'title', 'type', 'reward_min', 'reward_max', 'status','details'
-    ];
-
      /**
      * 論理削除実行時に更新する値
      *

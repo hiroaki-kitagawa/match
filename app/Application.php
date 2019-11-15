@@ -11,6 +11,8 @@ class Application extends Model
 
     protected $gurded = array('id');
 
+
+
      /**
      * 論理削除実行時に更新する値
      *

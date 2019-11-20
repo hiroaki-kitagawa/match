@@ -80,12 +80,14 @@ class ProfileController extends Controller
         $user = User::find(Auth::id());
         $user->name = $request->name;
         $user->email = $request->email;
-        $path = $request->file('profile_image')->store('public/avatar');
-        $user->profile_image = basename($path);
+        if($request->hasfile('profile_image')){
+            $path = $request->file('profile_image')->store('public/avatar');
+            $user->profile_image = basename($path);
+        };
         $user->profile_text = $request->profile_text;
         $user->save();
-
-        return view('profile.edit', compact('user'))->with('filename', basename($path));
+        session()->flash('changedProfile_message', 'プロフィールを更新しました');
+        return view('profile.edit', compact('user'));
     }
 
     /**

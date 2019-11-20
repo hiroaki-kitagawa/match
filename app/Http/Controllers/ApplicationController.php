@@ -2,7 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Job;
+use App\User;
+use App\Application;
 use Illuminate\Http\Request;
+use App\Http\Controllers\DB;
+use Illuminate\Support\Facades\Auth;
+use App\Notifications\SendInvitation;
 
 class ApplicationController extends Controller
 {
@@ -13,9 +19,7 @@ class ApplicationController extends Controller
      */
     public function index()
     {
-        // 応募済みお仕事案件を一覧表示する
-        // フロントエンドにおける表示はVueで行うため、
-        // DBから抽出したデータをJSONにして返す。
+
     }
 
     /**
@@ -36,7 +40,23 @@ class ApplicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // お仕事に応募する
+        // ユーザIDと応募対象のジョブID取得
+        $user_id = Auth::id();
+        $owner = $request->session()->get('owner');
+        $job_id = $request->session()->get('job_id');
+
+
+        $application = new Application;
+        $application->user_id = $user_id;
+        $application->job_id = $job_id;
+        $application->save();
+
+        \Notification::send($owner, new \App\Notifications\SendInvitation(\Auth::user()->name));
+
+        session()->flash('added_message', '応募しました');
+        return redirect('jobs/' . $job_id);
+
     }
 
     /**

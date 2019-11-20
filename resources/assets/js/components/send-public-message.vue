@@ -17,16 +17,16 @@
             }
         },
         methods: {
-            send() {
-                const url = '/ajax/chat';
-                const params = {
-                    message: this.message,
-                    job_id: this.job_id
-                };
+            send: function() {
                 var self = this;
-                axios.post(url, params)
+                const url = '/ajax/send_public_message';
+                const params = {
+                    message: self.message,
+                    job_id: self.job_id
+                };
+                axios.post(url, 1)
                     .then((response) => {
-                        this.messages = '';
+                        self.messages = '';
                     }).catch(error=> {console.log(error);});
             }
         },

@@ -6,7 +6,7 @@
         @include('sidebar')
         <div class="col-md-8">
             <div class="panel panel-default">
-                        <h2>お仕事情報を登録</h2>
+                        <h2>お仕事を登録する</h2>
                         <hr>
                         <form action="jobs/store" method="POST">
                             {{ csrf_field() }}

@@ -33,16 +33,22 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('ajax/my_public_message', 'Ajax\JobsController@my_public_message');
     Route::get('ajax/my_direct_message', 'Ajax\JobsController@my_direct_message');
 
-    Route::post('ajax/chat', 'Ajax\ChatController@create');
+    Route::post('ajax/send_public_message', 'Ajax\ChatController@send_public_message');
 
     Route::get('jobs/{id}', 'JobsController@show');
     Route::post('jobs/store', 'JobsController@store');
 
+    Route::post('messages/store', 'MessagesController@store');
+
     Route::get('profile/edit', 'ProfileController@edit');
     Route::post('profile/update', 'ProfileController@update');
 
+    Route::post('application/store', 'ApplicationController@store');
+
+    Route::get('logout', function () {return view('logout'); });
+
     Route::resource('profile', 'ProfileController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
-    Route::resource('application', 'ApplicationController', ['only' => ['index', 'show', 'update' ,'destroy']]);
+    Route::resource('application', 'ApplicationController', ['only' => ['index', 'create', 'store', 'show', 'update' ,'destroy']]);
     Route::resource('jobs', 'JobsController');
     Route::resource('messages', 'MessagesController');
     Route::resource('password', 'PasswordController', ['only' => ['index', 'create',

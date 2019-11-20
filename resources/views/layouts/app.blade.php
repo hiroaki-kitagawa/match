@@ -40,5 +40,12 @@
             });
         @endif
     </script>
+    <script>
+        @if (session('changedProfile_message'))
+            $(function () {
+                toastr.success('{{ session('changedProfile_message') }}');
+            });
+        @endif
+    </script>
 </body>
 </html>

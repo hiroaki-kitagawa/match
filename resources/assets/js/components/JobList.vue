@@ -8,9 +8,11 @@
             種別：{{ item.type }} <br>
             報酬：{{ item.reward_min | moneyDelimiter }} 〜 {{ item.reward_max | moneyDelimiter  }} <br>
             締切：あと{{ item.deadline | deadlinediff }}日({{ item.deadline }})
+
+            
+
             <hr>
         </div>
-        <br>
         <v-pagination :data="items" @move-page="movePage($event)"></v-pagination>
     </div>
 </template>

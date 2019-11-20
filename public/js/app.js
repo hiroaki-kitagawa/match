@@ -1888,6 +1888,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ajaxpath'],
   data: function data() {
@@ -1926,8 +1928,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
-//
 //
 //
 //
@@ -1999,16 +1999,14 @@ __webpack_require__.r(__webpack_exports__);
   },
   methods: {
     send: function send() {
-      var _this = this;
-
-      var url = '/ajax/chat';
-      var params = {
-        message: this.message,
-        job_id: this.job_id
-      };
       var self = this;
-      axios.post(url, params).then(function (response) {
-        _this.messages = '';
+      var url = '/ajax/send_public_message';
+      var params = {
+        message: self.message,
+        job_id: self.job_id
+      };
+      axios.post(url, 1).then(function (response) {
+        self.messages = '';
       })["catch"](function (error) {
         console.log(error);
       });
@@ -33000,13 +32998,11 @@ var render = function() {
               _vm._s(_vm._f("deadlinediff")(item.deadline)) +
               "日(" +
               _vm._s(item.deadline) +
-              ")\n        "
+              ")\n\n        \n\n        "
           ),
           _c("hr")
         ])
       }),
-      _vm._v(" "),
-      _c("br"),
       _vm._v(" "),
       _c("v-pagination", {
         attrs: { data: _vm.items },
@@ -33047,7 +33043,11 @@ var render = function() {
     [
       _vm._l(_vm.items.data, function(item) {
         return _c("div", { key: _vm.items.key }, [
-          _c("div"),
+          _c("a", { attrs: { href: "/jobs/" + item.job.id } }, [
+            _vm._v("案件名：" + _vm._s(item.job.title))
+          ]),
+          _vm._v(" "),
+          _c("br"),
           _vm._v(" "),
           _c("div", [
             _vm._v("\n            " + _vm._s(item.text) + "\n        ")

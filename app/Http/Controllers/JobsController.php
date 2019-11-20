@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Job;
 use App\User;
 use App\Message;
+use App\Application;
 use App\Http\Requests;
 use App\Http\Controllers\DB;
 use Illuminate\Support\Facades\Auth;
@@ -66,16 +67,35 @@ class JobsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         // 選択したお仕事案件の詳細画面を表示する
         $job = Job::findOrFail($id);
         $owner = User::find($job->user_id);
         $messages = Message::with('user')->where('job_id', $id)->where('type','PM')
-                            ->orderBy('created_at', 'desc')
+                            ->orderBy('created_at', 'asc')
                             ->get();
 
-        return view('jobs.show', compact('job', 'owner', 'messages'));
+        // 表示する仕事の投稿者とJobIDをセッションに保存する
+        $request->session()->put('owner', $owner);
+        $request->session()->put('job_id', $job->id);
+
+        // 自分が投稿した仕事か確認する
+
+
+        // 応募状況を確認する
+        // ApplicationsテーブルにJobIDとログインユーザIDを含むレコードがあれば応募済み
+        $check_user = Application::where('user_id', '=', Auth::id())->exists();
+        $check_job = Application::where('job_id', '=', $job->id)->exists();
+
+        if ( $check_user && $check_job )
+        { // 応募済み
+            $application_status = true;
+        } else { // 未応募
+            $application_status = false;
+        }
+
+        return view('jobs.show', compact('job', 'owner', 'messages', 'application_status'));
     }
 
     public function view_message()

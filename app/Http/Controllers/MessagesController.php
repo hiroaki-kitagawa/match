@@ -6,6 +6,8 @@ use App\Job;
 use App\User;
 use App\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Session;
 
 class MessagesController extends Controller
 {
@@ -34,8 +36,10 @@ class MessagesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, $id)
+    public function store(Request $request)
     {
+        // セッション経由でjobIDを取得する。
+        $job_id = Session::get('job_id');
         //新しいメッセージを投稿(POST)する。
         $message = new Message;
         $message->user_id = Auth::id();
@@ -44,6 +48,7 @@ class MessagesController extends Controller
         $message->type = 'PM';
         $message->save();
 
+        return redirect()->route('jobs.show', ['id' => $job_id]);
     }
 
 

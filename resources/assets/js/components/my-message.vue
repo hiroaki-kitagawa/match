@@ -1,9 +1,7 @@
 <template>
     <div>
         <div v-for="item in items.data" :key="items.key">
-            <div>
-
-            </div>
+            <a v-bind:href="'/jobs/' + item.job.id">案件名：{{ item.job.title }}</a> <br>
             <div>
                 {{ item.text }}
             </div>
@@ -20,7 +18,7 @@
         data() {
             return {
                 page: 1,
-                items: []
+                items: [],
             }
         },
         methods: {
@@ -28,8 +26,7 @@
                 const url = '/ajax/'+ this.ajaxpath +'?page='+ this.page;
                 axios.get(url)
                     .then((response) => {
-                        this.items = response.data;
-                });
+                        this.items = response.data;                });
             },
             movePage(page) {
                 this.page = page;

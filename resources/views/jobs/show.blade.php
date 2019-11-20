@@ -15,28 +15,30 @@
                     種別：{{$job->type}} <br>
                     報酬：{{ number_format($job->reward_min) }}円〜{{ number_format($job->reward_max) }}円 <br>
                     応募締切：{{$job->deadline}} <br>
+                    @if( $owner->id != Auth::id() )
+                        @if($application_status === false)
+                            <form action="/application/store" method="post">
+                                {{ csrf_field() }}
+                                {!! Form::submit('応募する') !!}
+                            </form>
+                        @else
+                            <form>
+                                {!! Form::submit('応募済み',['disabled' => 'disabled']) !!}
+                            </form>
+                        @endif
+                    @endif
                     <hr>
 
                     @foreach ($messages as $message)
-                        <div class="pull-left">
-                            @if($message->user_id == $owner->id)
-                                {{$message->user->profile_image}}
-                            @endif
+                        <div>
+                            {{$message->user->profile_image}}
                         </div>
                         <div>
                             {{ $message->text }}
                         </div>
-                        <div class="pull-right">
-                            @if($message->user_id <> $owner->id)
-                                {{$message->user->profile_image}}
-                            @endif
-                        </div>
                     @endforeach
-                    <hr>
                     <div>
-
                         <form action="../messages/store" method="POST">
-
                             {{ csrf_field() }}
                             {!! Form::textarea('public_message') !!}
                             {!! Form::submit('パブリックメッセージを送る') !!}

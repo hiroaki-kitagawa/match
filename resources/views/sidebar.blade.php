@@ -11,7 +11,7 @@
                 <table class="table">
                     <tbody>
                         <tr><td><a href="/profile/edit">プロフィール/設定</a></td></tr>
-                        <tr><td><a href="#">ログアウト</a></td></tr>
+                        <tr><td><a href="/logout">ログアウト</a></td></tr>
                     </tbody>
                 </table>
 

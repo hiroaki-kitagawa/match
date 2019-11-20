@@ -43,9 +43,8 @@ class MessagesController extends Controller
         //新しいメッセージを投稿(POST)する。
         $message = new Message;
         $message->user_id = Auth::id();
-        $message->job_id = $id;
+        $message->job_id = $job_id;
         $message->text = $request->public_message;
-        $message->type = 'PM';
         $message->save();
 
         return redirect()->route('jobs.show', ['id' => $job_id]);

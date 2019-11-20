@@ -72,7 +72,7 @@ class JobsController extends Controller
         // 選択したお仕事案件の詳細画面を表示する
         $job = Job::findOrFail($id);
         $owner = User::find($job->user_id);
-        $messages = Message::with('user')->where('job_id', $id)->where('type','PM')
+        $messages = Message::with('user')->where('job_id', $id)
                             ->orderBy('created_at', 'asc')
                             ->get();
 

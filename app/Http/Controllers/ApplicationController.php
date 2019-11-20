@@ -52,6 +52,7 @@ class ApplicationController extends Controller
         $application->job_id = $job_id;
         $application->save();
 
+        // お仕事の投稿者に通知メール送信
         \Notification::send($owner, new \App\Notifications\SendInvitation(\Auth::user()->name));
 
         session()->flash('added_message', '応募しました');
@@ -65,9 +66,11 @@ class ApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        // 応募済みお仕事案件の詳細画面を表示する
+        // 応募したお仕事案件の詳細画面を表示する
+        // ダイレクトメッセージもここでやり取りする
+        $job = Job::findOrFail($id);
     }
 
     /**

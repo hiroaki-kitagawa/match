@@ -1,8 +1,9 @@
 <template>
     <div>
         <div v-for="item in items.data" :key="items.key">
-            <a v-bind:href="'/jobs/' + item.job.id">案件名：{{ item.job.title }}</a> <br>
+            <a v-bind:href="'/jobs/' + item.job.id" target="_blank">案件名：{{ item.job.title }}</a> <br>
             <div>
+                送信者：{{ item.user.name }} <br>
                 {{ item.text }}
             </div>
             <hr>
@@ -14,7 +15,6 @@
 
 <script>
     export default {
-        props: ['ajaxpath'],
         data() {
             return {
                 page: 1,
@@ -23,7 +23,7 @@
         },
         methods: {
             getItems() {
-                const url = '/ajax/'+ this.ajaxpath +'?page='+ this.page;
+                const url = '/ajax/my_public_message?page='+ this.page;
                 axios.get(url)
                     .then((response) => {
                         this.items = response.data;                });

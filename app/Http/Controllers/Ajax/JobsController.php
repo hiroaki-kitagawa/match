@@ -45,27 +45,4 @@ class JobsController extends Controller
         return $jobs;
     }
 
-    public function my_public_message() {
-        $id = Auth::id();
-        $messages = \App\Message::with('job')->where('type', 'PM')
-                    ->where('sender_id', $id)
-                    ->groupBy('job_id')
-                    ->paginate(10);
-        return $messages;
-    }
-
-    public function my_direct_message() {
-        $id = Auth::id();
-        $messages = \App\Message::with('job')->where('type', 'DM')
-                    ->where('receiver_id', $id)
-                    ->groupBy('job_id')
-                    ->paginate(10);
-        return $messages;
-    }
-
-    
-
-
-
-
 }

@@ -18,7 +18,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'test@test.com',
                 'password' => bcrypt('password'),
                 'profile_text' => 'これは自己紹介文のテストです。',
-                'profile_image' => 'https://www.image.com/image01.png',
+                'profile_image' => 'me.png',
                 'remember_token' => str_random(10),
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
@@ -29,7 +29,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'test2@test.com',
                 'password' => bcrypt('password'),
                 'profile_text' => 'これは自己紹介文のテスト2です。',
-                'profile_image' => 'https://www.image.com/image02.png',
+                'profile_image' => 'me2.png',
                 'remember_token' => str_random(10),
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
@@ -40,7 +40,7 @@ class UsersTableSeeder extends Seeder
                 'email' => 'test3@test.com',
                 'password' => bcrypt('password'),
                 'profile_text' => 'これは自己紹介文のテスト3です。',
-                'profile_image' => 'https://www.image.com/image01.png',
+                'profile_image' => 'me3.png',
                 'remember_token' => str_random(10),
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")

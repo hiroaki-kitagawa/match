@@ -72,16 +72,14 @@ class JobsController extends Controller
         // 選択したお仕事案件の詳細画面を表示する
         $job = Job::findOrFail($id);
         $owner = User::find($job->user_id);
-        $messages = Message::with('user')->where('job_id', $id)->where('type','PM')
+        // パブリックコメントを取得する
+        $messages = Message::with('user')->where('job_id', $id)->where('recipient_id', null)
                             ->orderBy('created_at', 'asc')
                             ->get();
 
         // 表示する仕事の投稿者とJobIDをセッションに保存する
         $request->session()->put('owner', $owner);
         $request->session()->put('job_id', $job->id);
-
-        // 自分が投稿した仕事か確認する
-
 
         // 応募状況を確認する
         // ApplicationsテーブルにJobIDとログインユーザIDを含むレコードがあれば応募済み

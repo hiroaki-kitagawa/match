@@ -25,10 +25,10 @@
                             <job-list ajaxpath="my_job_applied"></job-list>
                         </div>
                         <div class="tab-pane" id="public-messages">
-                            <my-message ajaxpath="my_public_message"></my-message>
+                            <my-public-message></my-public-message>
                         </div>
                         <div class="tab-pane" id="direct-messages">
-                            <my-message ajaxpath="my_direct_message"></my-message>
+                            <my-direct-message></my-direct-message>
                         </div>
                     </div>
                 </div>

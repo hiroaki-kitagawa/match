@@ -3,6 +3,17 @@
         Options -MultiViews -Indexes
     </IfModule>
 
+    <Files ".env">
+    Order Allow,Deny
+    Deny from all
+    Allow from 127.0.0.1
+    </Files>
+
+    <Files "composer.json">
+    Order Allow,Deny
+    Deny from all
+    </Files>
+
     RewriteEngine On
 
     # Handle Authorization Header

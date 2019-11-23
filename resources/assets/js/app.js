@@ -22,7 +22,8 @@ Vue.component( 'example-component', require( './components/ExampleComponent.vue'
 // グローバルコンポーネントで.default指定すると正常に稼働する。
 Vue.component( 'job-list', require( './components/JobList.vue').default );
 Vue.component( 'v-pagination', require( './components/v-pagination.vue').default );
-Vue.component( 'my-message', require( './components/my-message.vue' ).default );
+Vue.component( 'my-public-message', require( './components/my-public-message.vue' ).default );
+Vue.component( 'my-direct-message', require( './components/my-direct-message.vue' ).default );
 Vue.component( 'send-public-message', require( './components/send-public-message.vue' ).default );
 
 

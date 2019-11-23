@@ -36,8 +36,6 @@
                             {!! Form::submit('更新') !!}
 
                         </form>
-
-
             </div>
         </div>
     </div>

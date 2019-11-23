@@ -30,8 +30,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('ajax/job_service', 'Ajax\JobsController@job_service');
     Route::get('ajax/my_job_submit', 'Ajax\JobsController@my_job_submit');
     Route::get('ajax/my_job_applied', 'Ajax\JobsController@my_job_applied');
-    Route::get('ajax/my_public_message', 'Ajax\JobsController@my_public_message');
-    Route::get('ajax/my_direct_message', 'Ajax\JobsController@my_direct_message');
+    Route::get('ajax/my_public_message', 'Ajax\ChatController@my_public_message');
+    Route::get('ajax/my_direct_message', 'Ajax\ChatController@my_direct_message');
 
     Route::post('ajax/send_public_message', 'Ajax\ChatController@send_public_message');
 
@@ -39,11 +39,14 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('jobs/store', 'JobsController@store');
 
     Route::post('messages/store', 'MessagesController@store');
+    Route::post('messages/storeDM', 'MessagesController@storeDM');
 
     Route::get('profile/edit', 'ProfileController@edit');
     Route::post('profile/update', 'ProfileController@update');
 
-    Route::post('application/store', 'ApplicationController@store');
+    Route::get('applications/index', 'ApplicationController@index');
+    Route::get('applications/{id}', 'ApplicationController@show');
+    Route::post('applications/store', 'ApplicationController@store');
 
     Route::get('logout', function () {return view('logout'); });
 

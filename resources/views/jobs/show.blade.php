@@ -31,7 +31,7 @@
 
                     @foreach ($messages as $message)
                         <div>
-                            {{$message->user->profile_image}}
+                            <img src="{{ asset('storage/avatar/' . $message->user->profile_image) }}" />
                         </div>
                         <div>
                             {{ $message->text }}

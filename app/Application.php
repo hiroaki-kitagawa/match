@@ -25,14 +25,19 @@ class Application extends Model
     /**
      * リレーション
      */
+    public function message()
+    {
+        return $this->hasMany('App\Message');
+    }
+
     public function user()
     {
-        return $this->belognsTo('App\User');
+        return $this->belongsTo('App\User');
     }
 
     public function job()
     {
-        return $this->belognsTo('App\Job');
+        return $this->belongsTo('App\Job');
     }
 
 }

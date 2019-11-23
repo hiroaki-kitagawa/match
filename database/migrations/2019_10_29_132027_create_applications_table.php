@@ -17,6 +17,7 @@ class CreateApplicationsTable extends Migration
             $table->increments('id');
             $table->unsignedInteger('user_id')->nullable();
             $table->unsignedInteger('job_id')->nullable();
+            $table->unsignedInteger('owner_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
 

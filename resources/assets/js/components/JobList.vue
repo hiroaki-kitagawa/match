@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="item in items.data" :key="items.key">
-            <a v-bind:href="'/jobs/' + item.id">案件名：{{ item.title }}</a> <br>
+            <a v-bind:href="'/jobs/' + item.id" target="_blank">案件名：{{ item.title }}</a> <br>
             ID: {{ item.id }} <br>
             投稿者： {{ item.user.name }} <br>
             内容：{{ item.detail }} <br>
@@ -9,7 +9,8 @@
             報酬：{{ item.reward_min | moneyDelimiter }} 〜 {{ item.reward_max | moneyDelimiter  }} <br>
             締切：あと{{ item.deadline | deadlinediff }}日({{ item.deadline }})
 
-            
+            <br>
+            <a v-if="ajaxpath == 'my_job_applied'" v-bind:href="'/applications/' + item.id" target="_blank">＞取引情報：{{ item.title }}</a>
 
             <hr>
         </div>

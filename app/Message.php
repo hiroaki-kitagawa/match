@@ -18,7 +18,7 @@ class Message extends Model
      * @var array
      */
     protected $fillable = [
-        'sender_id', 'job_id', 'receiver_id', 'text', 'type'
+        'sender_id', 'job_id', 'apply_id', 'text', 'type'
     ];
 
      /**
@@ -41,6 +41,11 @@ class Message extends Model
     public function job()
     {
         return $this->belongsTo('App\Job');
+    }
+
+    public function application()
+    {
+        return $this->belongsTo('App\Application');
     }
 
 }

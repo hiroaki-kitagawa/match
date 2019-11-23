@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Job;
 use App\User;
+use App\Message;
 use App\Application;
 use Illuminate\Http\Request;
 use App\Http\Controllers\DB;
@@ -50,12 +51,13 @@ class ApplicationController extends Controller
         $application = new Application;
         $application->user_id = $user_id;
         $application->job_id = $job_id;
+        $application->owner_id = $owner->id;
         $application->save();
 
         \Notification::send($owner, new \App\Notifications\SendInvitation(\Auth::user()->name));
 
         session()->flash('added_message', '応募しました');
-        return redirect('jobs/' . $job_id);
+        return redirect('application/' . $job_id);
 
     }
 
@@ -65,9 +67,20 @@ class ApplicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
         // 応募済みお仕事案件の詳細画面を表示する
+        $application = Application::find($id);
+        $application = Application::with('job')->where('id', $id)->get();
+        $apply_user = User::find($application[0]->user_id);
+        $owner_user = User::find($application[0]->owner_id);
+        // dd($id);
+        $messages = Message::with('user')->where('apply_id', $id)->get();
+
+        // DM送信時に使用する応募,仕事情報をセッションに保存する
+        $request->session()->put('application', $application);
+
+        return view('applications.show', compact('application', 'apply_user', 'owner_user', 'messages'));
     }
 
     /**

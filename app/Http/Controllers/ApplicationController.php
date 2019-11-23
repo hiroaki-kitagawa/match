@@ -54,6 +54,7 @@ class ApplicationController extends Controller
         $application->owner_id = $owner->id;
         $application->save();
 
+        // お仕事の投稿者に通知メール送信
         \Notification::send($owner, new \App\Notifications\SendInvitation(\Auth::user()->name));
 
         session()->flash('added_message', '応募しました');

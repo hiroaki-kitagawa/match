@@ -10,6 +10,15 @@
                         <hr>
                         <form action="/profile/update" method="POST" enctype="multipart/form-data">
                             {{ csrf_field() }}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div>
                                 {!! Form::label('name', 'お名前') !!}
                                 {!! Form::text('name', $user->name) !!}
@@ -36,6 +45,7 @@
                             {!! Form::submit('更新') !!}
 
                         </form>
+
             </div>
         </div>
     </div>

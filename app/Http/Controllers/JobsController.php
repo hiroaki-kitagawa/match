@@ -45,6 +45,15 @@ class JobsController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'type' => 'required|string',
+            'reward_min' => 'required|digits:15',
+            'reward_max' => 'required|digits:15',
+            'detail' => 'required|string|max:255',
+            'deadline' => 'required|date',
+        ]);
+
         // お仕事案件の新規登録ページから案件情報を保存(POST)する
         $job = new Job;
         $job->user_id = Auth::id();
@@ -109,7 +118,7 @@ class JobsController extends Controller
      */
     public function edit($id)
     {
-        // お仕事案件の詳細情報を編集する
+
     }
 
     /**
@@ -121,7 +130,7 @@ class JobsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // 詳細情報の変更内容を更新(POST)する
+
     }
 
     /**
@@ -132,6 +141,6 @@ class JobsController extends Controller
      */
     public function destroy($id)
     {
-        // お仕事案件を削除する
+
     }
 }

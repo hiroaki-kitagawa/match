@@ -10,6 +10,15 @@
                         <hr>
                         <form action="jobs/store" method="POST">
                             {{ csrf_field() }}
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
                             <div>
                                 {!! Form::label('title', 'タイトル') !!}
                                 {!! Form::text('title') !!}
@@ -36,9 +45,8 @@
                             <br>
                             {!! Form::submit('登録') !!}
 
+
                         </form>
-
-
             </div>
         </div>
     </div>

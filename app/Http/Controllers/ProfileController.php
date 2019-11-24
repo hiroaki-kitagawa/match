@@ -76,6 +76,12 @@ class ProfileController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'profile_text' => 'required|string|max:2048',
+        ]);
+
         //プロフィール編集ページからPOST(PUT)されて更新する
         $user = User::find(Auth::id());
         $user->name = $request->name;

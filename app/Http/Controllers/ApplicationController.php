@@ -71,17 +71,29 @@ class ApplicationController extends Controller
     public function show(Request $request, $id)
     {
         // 応募済みお仕事案件の詳細画面を表示する
-        $application = Application::find($id);
+        // 表示する取引情報に必要な応募情報を取得
         $application = Application::with('job')->where('id', $id)->get();
-        $apply_user = User::find($application[0]->user_id);
-        $owner_user = User::find($application[0]->owner_id);
-        // dd($id);
-        $messages = Message::with('user')->where('apply_id', $id)->get();
 
-        // DM送信時に使用する応募,仕事情報をセッションに保存する
-        $request->session()->put('application', $application);
+        // dd(Auth::id(), $application[0]->user_id,$application[0]->owner_id);
 
-        return view('applications.show', compact('application', 'apply_user', 'owner_user', 'messages'));
+        // 取引およびDMを閲覧できるユーザか確認する。
+        // ログイン中のユーザIDが取引情報の応募者or投稿者であれば表示する。
+        // 取引に無関係のユーザの場合、マイページに飛ばすことで取引画面の直リンクを抑止する。
+        if (Auth::id() == $application[0]->user_id || Auth::id() == $application[0]->owner_id)
+        {
+            // 必要な情報を取得する
+            $apply_user = User::find($application[0]->user_id); // 応募者
+            $owner_user = User::find($application[0]->owner_id); // 仕事の投稿者
+            $messages = Message::with('user')->where('apply_id', $id)->get(); // DMメッセージ
+
+            // DM送信時に使用する応募,仕事情報をセッションに保存する
+            $request->session()->put('application', $application);
+
+            return view('applications.show', compact('application', 'apply_user', 'owner_user', 'messages'));
+        } else {
+            return redirect('mypage');
+        }
+
     }
 
     /**

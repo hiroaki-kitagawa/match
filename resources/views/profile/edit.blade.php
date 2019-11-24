@@ -42,7 +42,7 @@
                             </div>
 
                             <br>
-                            {!! Form::submit('更新') !!}
+                            {!! Form::submit('更新', ['id' => 'btn-submit']) !!}
 
                         </form>
 

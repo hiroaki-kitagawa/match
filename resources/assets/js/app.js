@@ -42,3 +42,8 @@ Vue.filter( 'deadlinediff', function ( value ) {
 const app = new Vue({
     el: '#app'
 });
+
+// 多重送信防止,submitボタンを押した後、ポインタを無効にする。
+$( '#btn-submit' ).on( 'click', function () {
+    $( this ).css( 'pointer-events', 'none' );
+} );

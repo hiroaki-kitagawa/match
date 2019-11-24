@@ -43,8 +43,7 @@
                             </div>
 
                             <br>
-                            {!! Form::submit('登録') !!}
-
+                            {!! Form::submit('登録',  ['id' => 'btn-submit']) !!}
 
                         </form>
             </div>

@@ -48,8 +48,8 @@ class JobsController extends Controller
         $request->validate([
             'title' => 'required|string|max:255',
             'type' => 'required|string',
-            'reward_min' => 'required|digits:15',
-            'reward_max' => 'required|digits:15',
+            'reward_min' => 'required|digits_between:1,15',
+            'reward_max' => 'required|digits_between:1,15',
             'detail' => 'required|string|max:255',
             'deadline' => 'required|date',
         ]);
@@ -67,6 +67,10 @@ class JobsController extends Controller
         $job->save();
 
         session()->flash('added_message', 'お仕事を登録しました');
+
+        // 二重送信対策
+        $request->session()->regenerateToken();
+
         return redirect('mypage');
     }
 

@@ -32,20 +32,22 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
-    <!-- フラッシュメッセージ -->
     <script>
+        // フラッシュメッセージ
         @if (session('added_message'))
             $(function () {
                 toastr.success('{{ session('added_message') }}');
             });
         @endif
-    </script>
-    <script>
+
         @if (session('changedProfile_message'))
             $(function () {
                 toastr.success('{{ session('changedProfile_message') }}');
             });
         @endif
+
+        
+
     </script>
 </body>
 </html>

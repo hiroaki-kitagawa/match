@@ -31,7 +31,7 @@
                         <form action="../messages/storeDM" method="POST">
                             {{ csrf_field() }}
                             {!! Form::textarea('direct_message') !!}
-                            {!! Form::submit('ダイレクトメッセージを送る') !!}
+                            {!! Form::submit('ダイレクトメッセージを送る', ['id' => 'btn-submit']) !!}
                         </form>
                     </div>
                 </div>

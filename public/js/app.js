@@ -1891,6 +1891,9 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ajaxpath'],
   data: function data() {
@@ -33023,49 +33026,64 @@ var render = function() {
     "div",
     [
       _vm._l(_vm.items.data, function(item) {
-        return _c("div", { key: _vm.items.key }, [
-          _c("a", { attrs: { href: "/jobs/" + item.id, target: "_blank" } }, [
-            _vm._v("案件名：" + _vm._s(item.title))
-          ]),
-          _vm._v(" "),
-          _c("br"),
-          _vm._v("\n        ID: " + _vm._s(item.id) + " "),
-          _c("br"),
-          _vm._v("\n        投稿者： " + _vm._s(item.user.name) + " "),
-          _c("br"),
-          _vm._v("\n        内容：" + _vm._s(item.detail) + " "),
-          _c("br"),
-          _vm._v("\n        種別：" + _vm._s(item.type) + " "),
-          _c("br"),
-          _vm._v(
-            "\n        報酬：" +
-              _vm._s(_vm._f("moneyDelimiter")(item.reward_min)) +
-              " 〜 " +
-              _vm._s(_vm._f("moneyDelimiter")(item.reward_max)) +
-              " "
-          ),
-          _c("br"),
-          _vm._v(
-            "\n        締切：あと" +
-              _vm._s(_vm._f("deadlinediff")(item.deadline)) +
-              "日(" +
-              _vm._s(item.deadline) +
-              ")\n\n        "
-          ),
-          _c("br"),
-          _vm._v(" "),
-          _vm.ajaxpath == "my_job_applied"
-            ? _c(
-                "a",
-                {
-                  attrs: { href: "/applications/" + item.id, target: "_blank" }
-                },
-                [_vm._v("＞取引情報：" + _vm._s(item.title))]
-              )
-            : _vm._e(),
-          _vm._v(" "),
-          _c("hr")
-        ])
+        return _c(
+          "div",
+          { key: _vm.items.key },
+          [
+            _c("a", { attrs: { href: "/jobs/" + item.id, target: "_blank" } }, [
+              _vm._v("案件名：" + _vm._s(item.title))
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("\n        ID: " + _vm._s(item.id) + " "),
+            _c("br"),
+            _vm._v("\n        投稿者： " + _vm._s(item.user.name) + " "),
+            _c("br"),
+            _vm._v("\n        内容：" + _vm._s(item.detail) + " "),
+            _c("br"),
+            _vm._v("\n        種別：" + _vm._s(item.type) + " "),
+            _c("br"),
+            _vm._v(
+              "\n        報酬：" +
+                _vm._s(_vm._f("moneyDelimiter")(item.reward_min)) +
+                " 〜 " +
+                _vm._s(_vm._f("moneyDelimiter")(item.reward_max)) +
+                " "
+            ),
+            _c("br"),
+            _vm._v(
+              "\n        締切：あと" +
+                _vm._s(_vm._f("deadlinediff")(item.deadline)) +
+                "日(" +
+                _vm._s(item.deadline) +
+                ")\n\n        "
+            ),
+            _c("br"),
+            _vm._v(" "),
+            _vm._l(item.applications, function(dealings) {
+              return _c("div", { key: dealings.key }, [
+                _vm._v(
+                  "\n            応募者：" +
+                    _vm._s(dealings.user_name) +
+                    "\n            "
+                ),
+                _c(
+                  "a",
+                  {
+                    attrs: {
+                      href: "/applications/" + dealings.id,
+                      target: "_blank"
+                    }
+                  },
+                  [_vm._v("＞" + _vm._s() + "取引情報")]
+                )
+              ])
+            }),
+            _vm._v(" "),
+            _c("hr")
+          ],
+          2
+        )
       }),
       _vm._v(" "),
       _c("v-pagination", {

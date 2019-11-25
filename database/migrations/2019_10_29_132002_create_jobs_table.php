@@ -18,8 +18,8 @@ class CreateJobsTable extends Migration
             $table->unsignedInteger('user_id')->nullable();
             $table->string('title',256);
             $table->string('type', 256);
-            $table->integer('reward_min',15);
-            $table->integer('reward_max',15);
+            $table->integer('reward_min');
+            $table->integer('reward_max');
             $table->string('status', 256);
             $table->string('detail', 4096);
             $table->softDeletes();

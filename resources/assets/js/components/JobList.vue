@@ -10,7 +10,10 @@
             締切：あと{{ item.deadline | deadlinediff }}日({{ item.deadline }})
 
             <br>
-            <a v-if="ajaxpath == 'my_job_applied'" v-bind:href="'/applications/' + item.id" target="_blank">＞取引情報：{{ item.title }}</a>
+            <div v-for="dealings in item.applications" :key="dealings.key">
+                応募者：{{ dealings.user_name }}
+                <a v-bind:href="'/applications/' + dealings.id" target="_blank">＞{{ }}取引情報</a>
+            </div>
 
             <hr>
         </div>
@@ -24,7 +27,7 @@
         data() {
             return {
                 page: 1,
-                items: []
+                items: [],
             }
         },
         methods: {

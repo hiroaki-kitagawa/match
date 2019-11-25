@@ -17,11 +17,9 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="added-jobs">
-                            {{-- 登録したお仕事 --}}
                             <job-list ajaxpath="my_job_submit"></job-list>
                         </div>
                         <div class="tab-pane" id="apply-jobs">
-                            {{-- 応募したお仕事 --}}
                             <job-list ajaxpath="my_job_applied"></job-list>
                         </div>
                         <div class="tab-pane" id="public-messages">

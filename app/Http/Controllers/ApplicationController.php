@@ -50,6 +50,7 @@ class ApplicationController extends Controller
 
         $application = new Application;
         $application->user_id = $user_id;
+        $application->user_name = User::find($user_id)->name;
         $application->job_id = $job_id;
         $application->owner_id = $owner->id;
         $application->save();

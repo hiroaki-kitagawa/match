@@ -31,10 +31,11 @@ class JobsController extends Controller
 
     public function my_job_submit() {
         $id = Auth::id();
-        $jobs = \App\Job::with('user');
+        $jobs = \App\Job::with('user','applications');
         $jobs = $jobs->where('user_id', $id)->paginate(10);
         return $jobs;
     }
+
 
     public function my_job_applied() {
         $id = Auth::id();

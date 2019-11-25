@@ -17,9 +17,9 @@
                     応募締切：{{$job->deadline}} <br>
                     @if( $owner->id != Auth::id() )
                         @if($application_status === false)
-                            <form action="/application/store" method="post">
+                            <form action="/applications/store" method="post">
                                 {{ csrf_field() }}
-                                {!! Form::submit('応募する') !!}
+                                {!! Form::submit('応募する', ['id' => 'btn-submit']) !!}
                             </form>
                         @else
                             <form>
@@ -41,7 +41,7 @@
                         <form action="../messages/store" method="POST">
                             {{ csrf_field() }}
                             {!! Form::textarea('public_message') !!}
-                            {!! Form::submit('パブリックメッセージを送る') !!}
+                            {!! Form::submit('パブリックメッセージを送る', ['id' => 'btn-submit']) !!}
                         </form>
                     </div>
                 </div>

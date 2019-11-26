@@ -21,6 +21,7 @@ Vue.component( 'example-component', require( './components/ExampleComponent.vue'
 // vue-loader-13.0.0にてvueコンポーネントがデフォルトでesModuleとして設定される。
 // グローバルコンポーネントで.default指定すると正常に稼働する。
 Vue.component( 'job-list', require( './components/JobList.vue').default );
+Vue.component( 'my-job-list', require( './components/MyJobList.vue').default );
 Vue.component( 'v-pagination', require( './components/v-pagination.vue').default );
 Vue.component( 'my-public-message', require( './components/my-public-message.vue' ).default );
 Vue.component( 'my-direct-message', require( './components/my-direct-message.vue' ).default );
@@ -47,3 +48,5 @@ const app = new Vue({
 $( '#btn-submit' ).on( 'click', function () {
     $( this ).css( 'pointer-events', 'none' );
 } );
+
+

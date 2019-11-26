@@ -16,6 +16,7 @@
                     案件投稿者：{{ $owner_user->name }} <br>
                     報酬：{{ number_format($application[0]->job->reward_min) }}円〜{{ number_format($application[0]->job->reward_max) }}円 <br>
                     応募締切：{{ $application[0]->job->deadline }} <br>
+                    応募者：{{ $application[0]->user_name }}
 
                     <hr>
                     @foreach ($messages as $message)

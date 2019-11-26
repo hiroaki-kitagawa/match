@@ -37,6 +37,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('jobs/{id}', 'JobsController@show');
     Route::post('jobs/store', 'JobsController@store');
+    Route::get('jobs/edit/{id}', 'JobsController@edit');
+    Route::post('jobs/update/{id}', 'JobsController@update');
+    Route::get('jobs/delete/{id}', 'JobsController@delete');
 
     Route::post('messages/store', 'MessagesController@store');
     Route::post('messages/storeDM', 'MessagesController@storeDM');
@@ -50,10 +53,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('logout', function () {return view('logout'); });
 
-    Route::resource('profile', 'ProfileController', ['only' => ['index', 'create', 'store', 'show', 'edit', 'update', 'destroy']]);
-    Route::resource('application', 'ApplicationController', ['only' => ['index', 'create', 'store', 'show', 'update' ,'destroy']]);
-    Route::resource('jobs', 'JobsController');
-    Route::resource('messages', 'MessagesController');
     Route::resource('password', 'PasswordController', ['only' => ['index', 'create',
     'store', 'show', 'edit', 'update', 'destroy']]);
 });

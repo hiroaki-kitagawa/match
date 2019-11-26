@@ -9,6 +9,11 @@
             報酬：{{ item.reward_min | moneyDelimiter }} 〜 {{ item.reward_max | moneyDelimiter  }} <br>
             締切：あと{{ item.deadline | deadlinediff }}日({{ item.deadline }})<br>
 
+            <div v-if="item.user_id">
+                    <a v-bind:href="'/jobs/edit/' + item.id" target="_blank">編集</a>
+                    <a v-bind:href="'#'" v-on:click="deletePost(item.id)">削除</a>
+            </div>
+
             <div v-if="item.applications">
                 このお仕事への応募者
             </div>
@@ -31,6 +36,7 @@
             return {
                 page: 1,
                 items: [],
+                itemid: ''
             }
         },
         methods: {
@@ -40,6 +46,16 @@
                     .then((response) => {
                         this.items = response.data;
                 });
+            },
+            deletePost(itemid) {
+                if(confirm('削除してよろしいですか？')) {
+                    this.itemid = itemid;
+                    const url = '/jobs/delete/' + this.itemid;
+                    axios.get(url)
+                        .then((response)=>{
+                            window.location.reload();
+                        })
+                }
             },
             movePage(page) {
                 this.page = page;

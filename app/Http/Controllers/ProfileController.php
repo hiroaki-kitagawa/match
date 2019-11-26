@@ -92,7 +92,12 @@ class ProfileController extends Controller
         };
         $user->profile_text = $request->profile_text;
         $user->save();
+
         session()->flash('changedProfile_message', 'プロフィールを更新しました');
+
+        // 二重送信対策
+        $request->session()->regenerateToken();
+
         return view('profile.edit', compact('user'));
     }
 

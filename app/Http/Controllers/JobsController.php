@@ -45,6 +45,7 @@ class JobsController extends Controller
      */
     public function store(Request $request)
     {
+        // Validationをかける
         $request->validate([
             'title' => 'required|string|max:255',
             'type' => 'required|string',
@@ -109,11 +110,6 @@ class JobsController extends Controller
         return view('jobs.show', compact('job', 'owner', 'messages', 'application_status'));
     }
 
-    public function view_message()
-    {
-
-    }
-
     /**
      * Show the form for editing the specified resource.
      *
@@ -122,6 +118,18 @@ class JobsController extends Controller
      */
     public function edit($id)
     {
+        $job = Job::findOrFail($id);
+        if (empty($job)) {
+            abort(404);
+        }
+
+        // 自分が投稿したお仕事案件にのみアクセス制限
+        if($job->user_id == Auth::id())
+        {
+            return view('jobs.edit', compact('job'));
+        } else {
+            return back();
+        }
 
     }
 
@@ -134,7 +142,44 @@ class JobsController extends Controller
      */
     public function update(Request $request, $id)
     {
+        // Validationをかける
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'type' => 'required|string',
+            'reward_min' => 'required|digits_between:1,15',
+            'reward_max' => 'required|digits_between:1,15',
+            'detail' => 'required|string|max:255',
+            'deadline' => 'required|date',
+        ]);
 
+        $job = Job::find($id);
+        $job->user_id = Auth::id();
+        $job->title = $request->title;
+        $job->type = $request->type;
+        $job->reward_min = $request->reward_min;
+        $job->reward_max = $request->reward_max;
+        $job->status = '応募中';
+        $job->detail = $request->detail;
+        $job->deadline = $request->deadline;
+        $job->save();
+
+        session()->flash('added_message', 'お仕事を更新しました。' );
+
+        // 二重送信対策
+        $request->session()->regenerateToken();
+
+        return redirect('mypage');
+    }
+
+    public function delete(Request $request, $id)
+    {
+        $job = Job::find($request->id);
+        $job->delete();
+        $application = Application::where('job_id', $request->id);
+        $application->delete();
+        $messages = Message::where('job_id', $request->id);
+        $messages->delete();
+        return redirect('mypage');
     }
 
     /**
@@ -145,6 +190,6 @@ class JobsController extends Controller
      */
     public function destroy($id)
     {
-
+        return view('jobs.show');
     }
 }

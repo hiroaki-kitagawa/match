@@ -17,10 +17,10 @@
                 <div class="panel-body">
                     <div class="tab-content">
                         <div class="tab-pane active" id="added-jobs">
-                            <job-list ajaxpath="my_job_submit"></job-list>
+                            <my-job-list ajaxpath="my_job_submit" login_id="{{Auth::id()}}"></my-job-list>
                         </div>
                         <div class="tab-pane" id="apply-jobs">
-                            <job-list ajaxpath="my_job_applied"></job-list>
+                            <job-list ajaxpath="my_job_applied" login_id="{{Auth::id()}}"></job-list>
                         </div>
                         <div class="tab-pane" id="public-messages">
                             <my-public-message></my-public-message>

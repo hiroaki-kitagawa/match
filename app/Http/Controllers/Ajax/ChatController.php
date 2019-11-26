@@ -17,6 +17,7 @@ class ChatController extends Controller
         $messages = \App\Message::with('job', 'user')
                     ->where('user_id', $id)
                     ->where('apply_id', null) // 応募案件に紐付かないPM一覧を取得
+                    ->where('deleted_at', null)
                     ->groupBy('job_id')
                     ->paginate(10);
         return $messages;
@@ -26,6 +27,7 @@ class ChatController extends Controller
         $id = Auth::id();
         $messages = \App\Message::with('application', 'job', 'user')
                     ->where('recipient_id', $id) // 受信者IDがログインIDのDM一覧を取得
+                    ->where('deleted_at', null)
                     ->paginate(10);
         return $messages;
     }

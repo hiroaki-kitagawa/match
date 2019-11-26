@@ -46,7 +46,15 @@
             });
         @endif
 
-        
+        function deletePost(e) {
+            'use strict';
+
+            if (confirm('本当に削除していいですか?')) {
+                document.getElementById('form_' + e.dataset.id).submit();
+            } else {
+                return false;
+            }
+        }
 
     </script>
 </body>

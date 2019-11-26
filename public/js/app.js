@@ -1894,8 +1894,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  props: ['ajaxpath'],
+  props: ['ajaxpath', 'login_id'],
   data: function data() {
     return {
       page: 1,
@@ -1910,6 +1913,85 @@ __webpack_require__.r(__webpack_exports__);
       axios.get(url).then(function (response) {
         _this.items = response.data;
       });
+    },
+    movePage: function movePage(page) {
+      this.page = page;
+      this.getItems();
+    }
+  },
+  mounted: function mounted() {
+    this.getItems();
+  }
+});
+
+/***/ }),
+
+/***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/MyJobList.vue?vue&type=script&lang=js&":
+/*!***************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/MyJobList.vue?vue&type=script&lang=js& ***!
+  \***************************************************************************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+/* harmony default export */ __webpack_exports__["default"] = ({
+  props: ['ajaxpath', 'login_id'],
+  data: function data() {
+    return {
+      page: 1,
+      items: [],
+      itemid: ''
+    };
+  },
+  methods: {
+    getItems: function getItems() {
+      var _this = this;
+
+      var url = '/ajax/' + this.ajaxpath + '?page=' + this.page;
+      axios.get(url).then(function (response) {
+        _this.items = response.data;
+      });
+    },
+    deletePost: function deletePost(itemid) {
+      if (confirm('削除してよろしいですか？')) {
+        this.itemid = itemid;
+        var url = '/jobs/delete/' + this.itemid;
+        axios.get(url).then(function (response) {
+          window.location.reload();
+        });
+      }
     },
     movePage: function movePage(page) {
       this.page = page;
@@ -33056,27 +33138,160 @@ var render = function() {
                 _vm._s(_vm._f("deadlinediff")(item.deadline)) +
                 "日(" +
                 _vm._s(item.deadline) +
-                ")\n\n        "
+                ")"
             ),
             _c("br"),
             _vm._v(" "),
+            item.applications
+              ? _c("div", [
+                  _vm._v("\n            このお仕事への応募者\n        ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
             _vm._l(item.applications, function(dealings) {
               return _c("div", { key: dealings.key }, [
-                _vm._v(
-                  "\n            応募者：" +
-                    _vm._s(dealings.user_name) +
-                    "\n            "
-                ),
-                _c(
-                  "a",
-                  {
-                    attrs: {
-                      href: "/applications/" + dealings.id,
-                      target: "_blank"
-                    }
-                  },
-                  [_vm._v("＞" + _vm._s() + "取引情報")]
-                )
+                _c("ul", [
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "/applications/" + dealings.id,
+                          target: "_blank"
+                        }
+                      },
+                      [_vm._v(_vm._s(dealings.user_name) + "さんとの取引情報")]
+                    )
+                  ])
+                ])
+              ])
+            }),
+            _vm._v(" "),
+            _c("hr")
+          ],
+          2
+        )
+      }),
+      _vm._v(" "),
+      _c("v-pagination", {
+        attrs: { data: _vm.items },
+        on: {
+          "move-page": function($event) {
+            return _vm.movePage($event)
+          }
+        }
+      })
+    ],
+    2
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/MyJobList.vue?vue&type=template&id=f3ef09f0&":
+/*!*******************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/assets/js/components/MyJobList.vue?vue&type=template&id=f3ef09f0& ***!
+  \*******************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    [
+      _vm._l(_vm.items.data, function(item) {
+        return _c(
+          "div",
+          { key: _vm.items.key },
+          [
+            _c("a", { attrs: { href: "/jobs/" + item.id, target: "_blank" } }, [
+              _vm._v("案件名：" + _vm._s(item.title))
+            ]),
+            _vm._v(" "),
+            _c("br"),
+            _vm._v("\n        ID: " + _vm._s(item.id) + " "),
+            _c("br"),
+            _vm._v("\n        投稿者： " + _vm._s(item.user.name) + " "),
+            _c("br"),
+            _vm._v("\n        内容：" + _vm._s(item.detail) + " "),
+            _c("br"),
+            _vm._v("\n        種別：" + _vm._s(item.type) + " "),
+            _c("br"),
+            _vm._v(
+              "\n        報酬：" +
+                _vm._s(_vm._f("moneyDelimiter")(item.reward_min)) +
+                " 〜 " +
+                _vm._s(_vm._f("moneyDelimiter")(item.reward_max)) +
+                " "
+            ),
+            _c("br"),
+            _vm._v(
+              "\n        締切：あと" +
+                _vm._s(_vm._f("deadlinediff")(item.deadline)) +
+                "日(" +
+                _vm._s(item.deadline) +
+                ")"
+            ),
+            _c("br"),
+            _vm._v(" "),
+            item.user_id
+              ? _c("div", [
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "/jobs/edit/" + item.id, target: "_blank" }
+                    },
+                    [_vm._v("編集")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "a",
+                    {
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          return _vm.deletePost(item.id)
+                        }
+                      }
+                    },
+                    [_vm._v("削除")]
+                  )
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            item.applications
+              ? _c("div", [
+                  _vm._v("\n            このお仕事への応募者\n        ")
+                ])
+              : _vm._e(),
+            _vm._v(" "),
+            _vm._l(item.applications, function(dealings) {
+              return _c("div", { key: dealings.key }, [
+                _c("ul", [
+                  _c("li", [
+                    _c(
+                      "a",
+                      {
+                        attrs: {
+                          href: "/applications/" + dealings.id,
+                          target: "_blank"
+                        }
+                      },
+                      [_vm._v(_vm._s(dealings.user_name) + "さんとの取引情報")]
+                    )
+                  ])
+                ])
               ])
             }),
             _vm._v(" "),
@@ -33139,7 +33354,7 @@ var render = function() {
                   target: "_blank"
                 }
               },
-              [_vm._v("＞取引情報：" + _vm._s(item.job.title))]
+              [_vm._v("＞" + _vm._s(item.user.name) + " さんとの取引情報")]
             )
           ]),
           _vm._v(" "),
@@ -45519,6 +45734,7 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 // グローバルコンポーネントで.default指定すると正常に稼働する。
 
 Vue.component('job-list', __webpack_require__(/*! ./components/JobList.vue */ "./resources/assets/js/components/JobList.vue")["default"]);
+Vue.component('my-job-list', __webpack_require__(/*! ./components/MyJobList.vue */ "./resources/assets/js/components/MyJobList.vue")["default"]);
 Vue.component('v-pagination', __webpack_require__(/*! ./components/v-pagination.vue */ "./resources/assets/js/components/v-pagination.vue")["default"]);
 Vue.component('my-public-message', __webpack_require__(/*! ./components/my-public-message.vue */ "./resources/assets/js/components/my-public-message.vue")["default"]);
 Vue.component('my-direct-message', __webpack_require__(/*! ./components/my-direct-message.vue */ "./resources/assets/js/components/my-direct-message.vue")["default"]);
@@ -45732,6 +45948,75 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_JobList_vue_vue_type_template_id_2bdb7ed8___WEBPACK_IMPORTED_MODULE_0__["render"]; });
 
 /* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_JobList_vue_vue_type_template_id_2bdb7ed8___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/MyJobList.vue":
+/*!******************************************************!*\
+  !*** ./resources/assets/js/components/MyJobList.vue ***!
+  \******************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _MyJobList_vue_vue_type_template_id_f3ef09f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./MyJobList.vue?vue&type=template&id=f3ef09f0& */ "./resources/assets/js/components/MyJobList.vue?vue&type=template&id=f3ef09f0&");
+/* harmony import */ var _MyJobList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./MyJobList.vue?vue&type=script&lang=js& */ "./resources/assets/js/components/MyJobList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+
+
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+  _MyJobList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
+  _MyJobList_vue_vue_type_template_id_f3ef09f0___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _MyJobList_vue_vue_type_template_id_f3ef09f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/assets/js/components/MyJobList.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/MyJobList.vue?vue&type=script&lang=js&":
+/*!*******************************************************************************!*\
+  !*** ./resources/assets/js/components/MyJobList.vue?vue&type=script&lang=js& ***!
+  \*******************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyJobList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/babel-loader/lib??ref--4-0!../../../../node_modules/vue-loader/lib??vue-loader-options!./MyJobList.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/MyJobList.vue?vue&type=script&lang=js&");
+/* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_MyJobList_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/assets/js/components/MyJobList.vue?vue&type=template&id=f3ef09f0&":
+/*!*************************************************************************************!*\
+  !*** ./resources/assets/js/components/MyJobList.vue?vue&type=template&id=f3ef09f0& ***!
+  \*************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyJobList_vue_vue_type_template_id_f3ef09f0___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../node_modules/vue-loader/lib??vue-loader-options!./MyJobList.vue?vue&type=template&id=f3ef09f0& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/assets/js/components/MyJobList.vue?vue&type=template&id=f3ef09f0&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyJobList_vue_vue_type_template_id_f3ef09f0___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_MyJobList_vue_vue_type_template_id_f3ef09f0___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
 
 
 

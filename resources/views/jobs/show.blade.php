@@ -15,18 +15,26 @@
                     種別：{{$job->type}} <br>
                     報酬：{{ number_format($job->reward_min) }}円〜{{ number_format($job->reward_max) }}円 <br>
                     応募締切：{{$job->deadline}} <br>
+
+                    <div>
+                        <a href="'https://twitter.com/share?text={{$job->title}}:{{$job->detail}}?ref_src=twsrc%5etfw'" class="twitter-share-button" data-show-count="false">tweet</a>
+                    </div>
+
                     @if( $owner->id != Auth::id() )
-                        @if($application_status === false)
+                        <div>
+                            @if($application_status === false)
                             <form action="/applications/store" method="post">
                                 {{ csrf_field() }}
                                 {!! Form::submit('応募する', ['id' => 'btn-submit']) !!}
                             </form>
-                        @else
+                            @else
                             <form>
                                 {!! Form::submit('応募済み',['disabled' => 'disabled']) !!}
                             </form>
-                        @endif
+                            @endif
+                        </div>
                     @endif
+
                     <hr>
 
                     @foreach ($messages as $message)

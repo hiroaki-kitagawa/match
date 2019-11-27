@@ -4,7 +4,7 @@
                     <tbody>
                         <tr><td><a href="/mypage">マイページ</a></td></tr>
                         <tr><td><a href="/home">お仕事一覧</a></td></tr>
-                        <tr><td><a href="/jobs">お仕事を登録する</a></td></tr>
+                        <tr><td><a href="/jobs/create">お仕事を登録する</a></td></tr>
                     </tbody>
                 </table>
                 <div class="partitionplate"></div>

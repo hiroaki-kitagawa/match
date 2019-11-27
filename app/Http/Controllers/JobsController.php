@@ -33,7 +33,8 @@ class JobsController extends Controller
      */
     public function create()
     {
-
+        // お仕事案件の新規登録ページを表示する
+        return view('jobs.add');
     }
 
 

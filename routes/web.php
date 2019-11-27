@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('ajax/send_public_message', 'Ajax\ChatController@send_public_message');
 
+    Route::get('jobs', 'JobsController@index');
     Route::get('jobs/{id}', 'JobsController@show');
     Route::post('jobs/store', 'JobsController@store');
     Route::get('jobs/edit/{id}', 'JobsController@edit');

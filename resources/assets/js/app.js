@@ -17,7 +17,6 @@ import dayjs from 'dayjs'
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component( 'example-component', require( './components/ExampleComponent.vue' ));
 // vue-loader-13.0.0にてvueコンポーネントがデフォルトでesModuleとして設定される。
 // グローバルコンポーネントで.default指定すると正常に稼働する。
 Vue.component( 'job-list', require( './components/JobList.vue').default );
@@ -48,5 +47,3 @@ const app = new Vue({
 $( '#btn-submit' ).on( 'click', function () {
     $( this ).css( 'pointer-events', 'none' );
 } );
-
-

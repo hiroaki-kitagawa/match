@@ -2,8 +2,66 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
+// 「MATCH」の要件に従い使用禁止
 // Variables
-@import "variables";
+// @import "variables";
 
 // Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+// @import "~bootstrap-sass/assets/stylesheets/bootstrap";
+
+
+// ==========================================================================
+// Foundation
+// ==========================================================================
+
+@import "foundation/_reset";
+@import "foundation/_variables";
+@import "foundation/_mixin";
+@import "foundation/_base";
+
+// ==========================================================================
+// Layout
+// ==========================================================================
+
+// @import "layout/_header";
+// @import "layout/_menu";
+// @import "layout/_hero";
+// @import "layout/_container";
+// @import "layout/_footer";
+// @import "layout/_main";
+// @import "layout/_sidebar";
+
+// ==========================================================================
+// Object
+// ==========================================================================
+
+// -----------------------------------------------------------------
+// Component
+// -----------------------------------------------------------------
+
+// @import "object/component/_panel";
+// @import "object/component/_form";
+// @import "object/component/_button";
+// @import "object/component/_dialog";
+// @import "object/component/_grid";
+// @import "object/component/_media";
+
+// -----------------------------------------------------------------
+// Project
+// -----------------------------------------------------------------
+
+// @import "object/project/_news";
+// @import "object/project/_comments";
+// @import "object/project/_gallery";
+// @import "object/project/_profile";
+
+// -----------------------------------------------------------------
+// Utility
+// -----------------------------------------------------------------
+
+// @import "object/utility/_utility";
+// @import "object/utility/_clearfix";
+// @import "object/utility/_margin";
+// @import "object/utility/_position";
+// @import "object/utility/_size";
+// @import "object/utility/_text";

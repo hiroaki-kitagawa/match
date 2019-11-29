@@ -1,0 +1,33 @@
+// ==================================
+// base
+// ==================================
+html,
+body {
+  width: 100%;
+  font-size: $font-size_default;
+  line-height: 1.6;
+  font-family: $font_family_default;
+  text-size-adjust: 100%;
+  letter-spacing: 0.1em;
+}
+
+p,
+a {
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: $font-color_default;
+  text-decoration: none;
+  transition: .3s;
+}
+
+a:hover {
+  color: $color_corp;
+  transition: .3s;
+}
+
+img {
+  width: 100%;
+  vertical-align: bottom;
+}

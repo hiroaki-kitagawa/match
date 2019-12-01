@@ -22,12 +22,16 @@
 
 <body>
     <div id="app">
-        @include('layouts.header')
+        <div class="container">
+            @include('layouts.header')
 
-        @yield('content')
+            <div class="wrapper">
+                @yield('content')
+            </div>
+            @include('layouts.footer')
+        </div>
     </div>
 
-    @include('layouts.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

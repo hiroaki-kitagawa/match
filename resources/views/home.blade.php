@@ -1,37 +1,26 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        @include('sidebar')
-        <div class="col-md-8">
-            {{-- <div>
-                <input name="search_job" placeholder="お仕事を探す" type="text" class="search_box">
-                <button class="search_button">検索</button>
-            </div> --}}
-            <div class="panel panel-default">
-                <div class="tab-content">
-                    <ul class="nav nav-tabs nav-justified">
-                        <li class="active"><a href="#all-jobs" data-toggle="tab">すべて</a></li>
-                        <li><a href="#single-jobs" data-toggle="tab">単発</a></li>
-                        <li><a href="#service-jobs" data-toggle="tab">サービス開発</a></li>
-                    </ul>
+@include('sidebar')
+    <div class="contents">
+        <div class="cp_tab">
+            <input type="radio" name="cp_tab" id="tab1_1" aria-controls="first_tab01" checked>
+            <label for="tab1_1">すべて</label>
+            <input type="radio" name="cp_tab" id="tab1_2" aria-controls="second_tab01">
+            <label for="tab1_2">単発</label>
+            <input type="radio" name="cp_tab" id="tab1_3" aria-controls="third_tab01">
+            <label for="tab1_3">サービス開発</label>
+            <div class="cp_tabpanels">
+                <div id="first_tab01" class="cp_tabpanel">
+                    <job-list ajaxpath="job_all"></job-list>
                 </div>
-                <div class="panel-body">
-                    <div class="tab-content">
-                        <div class="tab-pane active" id="all-jobs">
-                            <job-list ajaxpath="job_all"></job-list>
-                        </div>
-                        <div class="tab-pane" id="single-jobs">
-                            <job-list ajaxpath="job_single"></job-list>
-                        </div>
-                        <div class="tab-pane" id="service-jobs">
-                            <job-list ajaxpath="job_service"></job-list>
-                        </div>
-                    </div>
+                <div id="second_tab01" class="cp_tabpanel">
+                    <job-list ajaxpath="job_single"></job-list>
+                </div>
+                <div id="third_tab01" class="cp_tabpanel">
+                    <job-list ajaxpath="job_service"></job-list>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

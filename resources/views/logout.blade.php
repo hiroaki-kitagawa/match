@@ -1,20 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row">
-        @include('sidebar')
-        <div class="col-md-8">
-            <div class="panel panel-default">
-                <div class="tab-content">
-                    <button href="{{ route('logout') }}"
-                        onclick="event.preventDefault();
-                                    document.getElementById('logout-form').submit();">
-                        {{ __('Logout') }}
-                    </button>
-                </div>
-            </div>
-        </div>
+@include('sidebar')
+<div class="form-parent form-m0a">
+    <div class="form-label">
+        <form method="POST" action="{{ route('logout')}}">
+            {{ csrf_field() }}
+            <button type="submit" class="btn-default" id="btn-submit">
+                {{ __('Logout') }}
+            </button>
+        </form>
     </div>
 </div>
 @endsection

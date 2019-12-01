@@ -1,0 +1,66 @@
+// ==============================
+// ヘッダー
+// ==============================
+.header {
+  position: relative;
+  min-height: $space_3l;
+  margin-bottom: $space_l;
+  border: 1px solid transparent;
+
+  &-default {
+    background-color: #fff;
+    border-color: #d3e0e9;
+  }
+  &-static-top {
+    z-index: 100;
+    border-width: 0 0 1px;
+  }
+
+}
+.site-title {
+  float: left;
+  padding: 15px 30px;
+  font-size: $font_size_l;
+  line-height: 25px;
+  }
+
+.header-right {
+  float: right;
+  padding: 15px 30px;
+  .nav {
+    display: flex;
+
+    li {
+      margin-right: 10px;
+    }
+  }
+
+  .user-icon {
+    display: flex;
+  }
+
+  .user-name {
+    margin-top: 5px;
+  }
+
+  .trim {
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
+
+  .trim img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    height: 100%;
+    line-height: 25px;
+  }
+
+}

@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\Auth;
 
 class ChatController extends Controller
 {
-    public function send_public_message(Request $request, $params) {
-        return dd($params);
-    }
-
+ 
     public function my_public_message() {
         $id = Auth::id();
         $messages = \App\Message::with('job', 'user')

@@ -1,8 +1,8 @@
 .btn-default {
   display: block;
   width: 100%;
-  line-height: 30px;
-  font-size: 14px;
+  line-height: $space_xxl;
+  font-size: $font-size_m;
   border: 1px solid transparent;
   -webkit-transition: all ease-out .3s;
   transition: all ease-out .3s;
@@ -13,15 +13,47 @@
 button[type="submit"],
 input[type="submit"] {
   border: none;
-  padding: 15px 30px;
-  margin-bottom: 15px;
+  padding: $space_l $space_xxl;
+  margin-bottom: $space_l;
   background: $color_corp;
   color: white;
   float: right;
-}
 
+}
 button[type="submit"]:hover,
 input[type="submit"]:hover {
   background: $color_corp-hover;
   cursor: pointer;
+}
+
+
+a {
+  &.btn {
+    display: inline-block;
+    font-size:0.9em;
+    width:$space_4l;
+    margin-right: $space_xl;
+    border:1px;
+
+    &-edit {
+      background-color: #98fb98;
+      &:hover {
+        background-color: $color_corp-hover;
+        color: #fff;
+      }
+    }
+    &-del {
+      background-color: #ff69b4;
+        &:hover {
+          background-color: $color_corp-hover;
+          color: #fff;
+        }
+    }
+  }
+
+}
+
+.btn-block {
+  padding: 10px 0;
+  display: flex;
 }

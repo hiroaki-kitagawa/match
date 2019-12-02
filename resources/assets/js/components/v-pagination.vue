@@ -1,15 +1,14 @@
 <template>
-
-    <ul class="pagination">
-        <li class="page-item">
-            <a class="page-link" href="#" v-if="data.current_page > 0" @click.prevent="move(data.current_page-1)">前へ</a>
+    <ul class="c-pagination" v-if="data.total > 0">
+        <li class="c-pagination-page-item" v-if="data.current_page > 0">
+            <a class="page-link" href="#" @click.prevent="move(data.current_page-1)">前へ</a>
         </li>
-        <li class="page-item"><span>{{data.current_page}}/{{data.last_page}}</span></li>
-        <li class="page-item">
-            <a class="page-link" href="#" v-if="data.current_page < data.last_page" @click.prevent="move(data.current_page+1)">次へ</a>
+        <li class="c-pagination-page-number"><span>{{data.current_page}}/{{data.last_page}}</span></li>
+        <li class="c-pagination-page-item" v-if="data.current_page < data.last_page">
+            <a class="page-link" href="#"  @click.prevent="move(data.current_page+1)">次へ</a>
         </li>
     </ul>
-
+    <div v-else>表示するアイテムがありません。</div>
 </template>
 
 <script>

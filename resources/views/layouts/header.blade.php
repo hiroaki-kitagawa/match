@@ -1,11 +1,11 @@
-<header class="header header-default header-static-top">
-    <div class="site-title" >
+<header class="l-header header__static-top">
+    <div class="l-header__site-title" >
         <a href="{{ url('/home') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
     </div>
 
-    <div class="header-right">
+    <div class="l-header__right">
         <ul class="nav">
             <!-- Authentication Links -->
             @guest

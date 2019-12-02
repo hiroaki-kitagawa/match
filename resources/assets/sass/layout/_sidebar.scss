@@ -1,33 +1,39 @@
-.sidebar {
+.l-sidebar {
   position: relative;
-  min-height: 80vh;
-  padding-right: 30px;
-  padding-left: 30px;
+  padding: 0 30px 30px 30px;
   float: left;
 
-  .sidenav {
+  @include mq() {
+    width: 85%;
+  }
+
+  .l-sidenav {
     list-style-type: none;
     margin: 0;
     padding: 0;
     width: 200px;
-    background-color: #f1f1f1;
+    background-color: $background-color_body;
     position: relative;
     overflow: auto;
-  }
-  .sidenav li a {
-    display: block;
-    color: #000000;
-    padding: 8px 16px;
-    text-decoration: none;
-  }
-  .sidenav li a.active {
-    background-color: #da3c41;
-    color: white;
-  }
 
-  .sidenav li a:hover:not(.active) {
-    background-color: $color_corp-hover;
-    color: white;
+    @include mq() {
+      padding-right: 0;
+      padding-left: 0;
+      width: 300px;
+    }
+    li a {
+      display: block;
+      color: $font_color_default;
+      padding: 8px 16px;
+      text-decoration: none;
+    }
+    li a.active {
+      background-color: $font-color_sub1;
+      color: white;
+    }
+    li a:hover:not(.active) {
+      background-color: $color_corp-hover;
+      color: white;
+    }
   }
-
 }

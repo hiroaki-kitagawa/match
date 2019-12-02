@@ -24,11 +24,9 @@
     <div id="app">
         <div class="container">
             @include('layouts.header')
-
             <div class="wrapper">
                 @yield('content')
             </div>
-            @include('layouts.footer')
         </div>
     </div>
 

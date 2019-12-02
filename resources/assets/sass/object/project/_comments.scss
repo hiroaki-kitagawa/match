@@ -1,0 +1,63 @@
+.balloon {
+  width: 100%;
+  margin: 1.5em 0;
+  overflow: hidden;
+
+  .faceicon {
+    float: left;
+    margin-right: -90px;
+    width: 80px;
+
+      @include mq() {
+        width: 60px;
+      }
+  }
+
+  .faceicon img {
+  width: 100%;
+  height: auto;
+    border: solid 3px #d7ebfe;
+    border-radius: 50%;
+  }
+
+  .chatting {
+    width: 540px;
+      @include mq() {
+        width: 330px;
+      }
+      @include mq($breakpoint: md) {
+        width: 450px;
+      }
+  }
+}
+
+.chat-user-name {
+  padding-left: 100px;
+}
+
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 5px 0 0 105px;
+  padding: 17px 13px;
+  border-radius: 12px;
+  background: #d7ebfe;
+    @include mq() {
+      margin: 5px 0 0 75px;
+    }
+
+  :after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 18px;
+    left: -24px;
+    border: 12px solid transparent;
+    border-right: 12px solid #d7ebfe;
+  }
+  .says p {
+    margin: 0;
+    padding: 0;
+  }
+}

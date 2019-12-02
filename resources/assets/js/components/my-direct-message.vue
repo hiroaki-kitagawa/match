@@ -4,7 +4,7 @@
             <div>
                 送信者：{{ item.user.name }} <br>
                 {{ item.text }} <br>
-                <a v-bind:href="'/applications/' + item.apply_id" target="_blank">＞{{ item.user.name }} さんとの取引情報</a>
+                <a v-bind:href="'/applications/' + item.apply_id" target="_blank">>>{{ item.user.name }} さんとの取引情報</a>
             </div>
             <hr>
         </div>

@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="item in items.data" :key="items.key">
-            <a v-bind:href="'/jobs/' + item.id" target="_blank">案件名：{{ item.title }}</a> <br>
+            <a v-bind:href="'/jobs/' + item.id" target="_blank">>>案件名：{{ item.title }}</a> <br>
             ID: {{ item.id }} <br>
             投稿者： {{ item.user.name }} <br>
             内容：{{ item.detail }} <br>
@@ -9,9 +9,9 @@
             報酬：{{ item.reward_min | moneyDelimiter }} 〜 {{ item.reward_max | moneyDelimiter  }} <br>
             締切：あと{{ item.deadline | deadlinediff }}日({{ item.deadline }})<br>
 
-            <div v-if="item.user_id">
-                    <a v-bind:href="'/jobs/edit/' + item.id" target="_blank">編集</a>
-                    <a v-bind:href="'#'" v-on:click="deletePost(item.id)">削除</a>
+            <div v-if="item.user_id" class="btn-block">
+                    <a class="btn-default btn btn-edit" v-bind:href="'/jobs/edit/' + item.id" target="_blank">編集</a>
+                    <a class="btn-default btn btn-del" v-bind:href="'#'" v-on:click="deletePost(item.id)">削除</a>
             </div>
 
             <div v-if="item.applications">
@@ -19,7 +19,7 @@
             </div>
             <div v-for="dealings in item.applications" :key="dealings.key">
                 <ul>
-                    <li><a v-bind:href="'/applications/' + dealings.id" target="_blank">{{ dealings.user_name }}さんとの取引情報</a></li>
+                    <li><a v-bind:href="'/applications/' + dealings.id" target="_blank">>>{{ dealings.user_name }}さんとの取引情報</a></li>
                 </ul>
             </div>
 

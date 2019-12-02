@@ -11,25 +11,6 @@ body {
   text-size-adjust: 100%;
   letter-spacing: 0.1em;
 }
-.container {
-  position: relative;
-  width: 100%;
-  height: auto !important;
-  min-height: 100vh;
-  padding-bottom: 300px;
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-}
-.wrapper {
-  flex: 1;
-  display: flex;
-  min-height: 100vh;
-}
-.contents {
-  flex: 1;
-}
-
 
 p,
 a {

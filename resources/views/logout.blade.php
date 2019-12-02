@@ -2,7 +2,7 @@
 
 @section('content')
 @include('sidebar')
-<div class="form-parent form-m0a">
+<div class="form-parent">
     <div class="form-label">
         <form method="POST" action="{{ route('logout')}}">
             {{ csrf_field() }}

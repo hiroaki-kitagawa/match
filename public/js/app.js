@@ -2046,7 +2046,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2129,7 +2128,6 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
 //
 //
 //
@@ -33033,7 +33031,7 @@ var render = function() {
           { key: _vm.items.key },
           [
             _c("a", { attrs: { href: "/jobs/" + item.id, target: "_blank" } }, [
-              _vm._v("案件名：" + _vm._s(item.title))
+              _vm._v(">>案件名：" + _vm._s(item.title))
             ]),
             _vm._v(" "),
             _c("br"),
@@ -33080,7 +33078,11 @@ var render = function() {
                           target: "_blank"
                         }
                       },
-                      [_vm._v(_vm._s(dealings.user_name) + "さんとの取引情報")]
+                      [
+                        _vm._v(
+                          ">>" + _vm._s(dealings.user_name) + "さんとの取引情報"
+                        )
+                      ]
                     )
                   ])
                 ])
@@ -33136,7 +33138,7 @@ var render = function() {
           { key: _vm.items.key },
           [
             _c("a", { attrs: { href: "/jobs/" + item.id, target: "_blank" } }, [
-              _vm._v("案件名：" + _vm._s(item.title))
+              _vm._v(">>案件名：" + _vm._s(item.title))
             ]),
             _vm._v(" "),
             _c("br"),
@@ -33166,10 +33168,11 @@ var render = function() {
             _c("br"),
             _vm._v(" "),
             item.user_id
-              ? _c("div", [
+              ? _c("div", { staticClass: "btn-block" }, [
                   _c(
                     "a",
                     {
+                      staticClass: "btn-default btn btn-edit",
                       attrs: { href: "/jobs/edit/" + item.id, target: "_blank" }
                     },
                     [_vm._v("編集")]
@@ -33178,6 +33181,7 @@ var render = function() {
                   _c(
                     "a",
                     {
+                      staticClass: "btn-default btn btn-del",
                       attrs: { href: "#" },
                       on: {
                         click: function($event) {
@@ -33208,7 +33212,11 @@ var render = function() {
                           target: "_blank"
                         }
                       },
-                      [_vm._v(_vm._s(dealings.user_name) + "さんとの取引情報")]
+                      [
+                        _vm._v(
+                          ">>" + _vm._s(dealings.user_name) + "さんとの取引情報"
+                        )
+                      ]
                     )
                   ])
                 ])
@@ -33274,7 +33282,7 @@ var render = function() {
                   target: "_blank"
                 }
               },
-              [_vm._v("＞" + _vm._s(item.user.name) + " さんとの取引情報")]
+              [_vm._v(">>" + _vm._s(item.user.name) + " さんとの取引情報")]
             )
           ]),
           _vm._v(" "),
@@ -33324,7 +33332,7 @@ var render = function() {
           _c(
             "a",
             { attrs: { href: "/jobs/" + item.job.id, target: "_blank" } },
-            [_vm._v("案件名：" + _vm._s(item.job.title))]
+            [_vm._v("＞案件名：" + _vm._s(item.job.title))]
           ),
           _vm._v(" "),
           _c("br"),
@@ -33338,8 +33346,6 @@ var render = function() {
           _c("hr")
         ])
       }),
-      _vm._v(" "),
-      _c("br"),
       _vm._v(" "),
       _c("v-pagination", {
         attrs: { data: _vm.items },
@@ -33435,51 +33441,55 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("ul", { staticClass: "pagination" }, [
-    _c("li", { staticClass: "page-item" }, [
-      _vm.data.current_page > 0
-        ? _c(
-            "a",
-            {
-              staticClass: "page-link",
-              attrs: { href: "#" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.move(_vm.data.current_page - 1)
-                }
-              }
-            },
-            [_vm._v("前へ")]
-          )
-        : _vm._e()
-    ]),
-    _vm._v(" "),
-    _c("li", { staticClass: "page-item" }, [
-      _c("span", [
-        _vm._v(_vm._s(_vm.data.current_page) + "/" + _vm._s(_vm.data.last_page))
+  return _vm.data.total > 0
+    ? _c("ul", { staticClass: "c-pagination" }, [
+        _vm.data.current_page > 0
+          ? _c("li", { staticClass: "c-pagination-page-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.move(_vm.data.current_page - 1)
+                    }
+                  }
+                },
+                [_vm._v("前へ")]
+              )
+            ])
+          : _vm._e(),
+        _vm._v(" "),
+        _c("li", { staticClass: "c-pagination-page-number" }, [
+          _c("span", [
+            _vm._v(
+              _vm._s(_vm.data.current_page) + "/" + _vm._s(_vm.data.last_page)
+            )
+          ])
+        ]),
+        _vm._v(" "),
+        _vm.data.current_page < _vm.data.last_page
+          ? _c("li", { staticClass: "c-pagination-page-item" }, [
+              _c(
+                "a",
+                {
+                  staticClass: "page-link",
+                  attrs: { href: "#" },
+                  on: {
+                    click: function($event) {
+                      $event.preventDefault()
+                      return _vm.move(_vm.data.current_page + 1)
+                    }
+                  }
+                },
+                [_vm._v("次へ")]
+              )
+            ])
+          : _vm._e()
       ])
-    ]),
-    _vm._v(" "),
-    _c("li", { staticClass: "page-item" }, [
-      _vm.data.current_page < _vm.data.last_page
-        ? _c(
-            "a",
-            {
-              staticClass: "page-link",
-              attrs: { href: "#" },
-              on: {
-                click: function($event) {
-                  $event.preventDefault()
-                  return _vm.move(_vm.data.current_page + 1)
-                }
-              }
-            },
-            [_vm._v("次へ")]
-          )
-        : _vm._e()
-    ])
-  ])
+    : _c("div", [_vm._v("表示するアイテムがありません。")])
 }
 var staticRenderFns = []
 render._withStripped = true

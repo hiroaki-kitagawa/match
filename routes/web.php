@@ -11,9 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 
 
 
@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::group(['middleware' => 'auth'], function () {
 
-
+    Route::get('/', function() {return view('home');});
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/mypage', function () {return  view('mypage'); });
 
@@ -35,6 +35,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::post('ajax/send_public_message', 'Ajax\ChatController@send_public_message');
 
+    Route::resource('jobs', 'JobsController');
     Route::get('jobs/create', 'JobsController@create');
     Route::get('jobs/{id}', 'JobsController@show');
     Route::post('jobs/store', 'JobsController@store');
@@ -48,6 +49,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('profile/edit', 'ProfileController@edit');
     Route::post('profile/update', 'ProfileController@update');
 
+    Route::resource('application', 'ApplicationController');
     Route::get('applications/index', 'ApplicationController@index');
     Route::get('applications/{id}', 'ApplicationController@show');
     Route::post('applications/store', 'ApplicationController@store');

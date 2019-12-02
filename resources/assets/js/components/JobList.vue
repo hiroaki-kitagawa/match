@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="item in items.data" :key="items.key">
-            <a v-bind:href="'/jobs/' + item.id" target="_blank">案件名：{{ item.title }}</a> <br>
+            <a v-bind:href="'/jobs/' + item.id" target="_blank">>>案件名：{{ item.title }}</a> <br>
             ID: {{ item.id }} <br>
             投稿者： {{ item.user.name }} <br>
             内容：{{ item.detail }} <br>
@@ -14,7 +14,7 @@
             </div>
             <div v-for="dealings in item.applications" :key="dealings.key">
                 <ul>
-                    <li><a v-bind:href="'/applications/' + dealings.id" target="_blank">{{ dealings.user_name }}さんとの取引情報</a></li>
+                    <li><a v-bind:href="'/applications/' + dealings.id" target="_blank">>>{{ dealings.user_name }}さんとの取引情報</a></li>
                 </ul>
             </div>
 
@@ -39,6 +39,7 @@
                 axios.get(url)
                     .then((response) => {
                         this.items = response.data;
+
                 });
             },
             movePage(page) {

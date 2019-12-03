@@ -3,7 +3,7 @@
 @section('content')
 @include('sidebar')
 <div class="l-main">
-    <h1 class="c-form-heading">プロフィール・設定変更</h1>
+    <h1 class="c-form__heading">プロフィール・設定変更</h1>
     <hr>
     <form action="/profile/update" method="POST" enctype="multipart/form-data">
         {{ csrf_field() }}

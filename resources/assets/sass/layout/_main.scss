@@ -2,6 +2,7 @@
   flex: 1;
   display: flex;
   width: $site-width;
+  margin: 0 auto;
 
   @include mq($breakpoint: md) {
     width: $site-width_tab;

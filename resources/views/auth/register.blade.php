@@ -14,7 +14,7 @@
                     <input id="name" type="text" class="c-form__input" name="name" value="{{ old('name') }}" required autofocus>
 
                     @if ($errors->has('name'))
-                        <span class="help-block">
+                        <span class="help-block alert">
                             <strong>{{ $errors->first('name') }}</strong>
                         </span>
                     @endif
@@ -28,13 +28,12 @@
                     <input id="email" type="email" class="c-form__input" name="email" value="{{ old('email') }}" required>
 
                     @if ($errors->has('email'))
-                        <span class="help-block">
+                        <span class="help-block alert">
                             <strong>{{ $errors->first('email') }}</strong>
                         </span>
                     @endif
                 </div>
             </div>
-
 
             <div class="form-label" class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
                 <label for="password">{{ __('Password') }}</label>
@@ -43,7 +42,7 @@
                     <input id="password" type="password" class="c-form__input" name="password" required>
 
                     @if ($errors->has('password'))
-                        <span class="help-block">
+                        <span class="help-block alert">
                             <strong>{{ $errors->first('password') }}</strong>
                         </span>
                     @endif

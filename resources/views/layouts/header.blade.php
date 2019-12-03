@@ -15,9 +15,12 @@
                 <li>
                     <a href="/mypage"  class="user-icon">
                         <div class="user-name">{{ Auth::user()->name }}</div>
-                        <div class="trim">
-                            <img src="{{ asset('storage/avatar/' . Auth::user()->profile_image) }}" />
-                        </div>
+                        @if( Auth::user()->profile_image )
+
+                            <div class="trim">
+                                <img src="{{ asset('storage/avatar/' . Auth::user()->profile_image) }}" />
+                            </div>
+                        @endif
                     </a>
                 </li>
             @endguest

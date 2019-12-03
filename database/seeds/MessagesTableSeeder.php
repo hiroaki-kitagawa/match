@@ -18,7 +18,7 @@ class MessagesTableSeeder extends Seeder
                 'job_id' => '1',
                 'apply_id' => '1',
                 'recipient_id' => '3',
-                'text' => 'テスト案件1,テスト太郎からテスト応募三郎へのDM',
+                'text' => 'テスト案件1,DMテスト',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],
@@ -58,7 +58,7 @@ class MessagesTableSeeder extends Seeder
                 'job_id' => '1',
                 'apply_id' => '1',
                 'recipient_id' => '1',
-                'text' => 'テスト案件1,テスト応募三郎からテスト太郎へのDM',
+                'text' => 'テスト案件1,DMテスト',
                 'created_at' => date("Y-m-d H:i:s"),
                 'updated_at' => date("Y-m-d H:i:s")
             ],

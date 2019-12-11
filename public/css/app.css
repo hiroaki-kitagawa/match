@@ -178,19 +178,13 @@ img {
   position: relative;
   margin: 0 auto;
   width: 980px;
-  min-height: 40px;
+  min-height: 60px;
   margin-bottom: 15px;
   border: 1px solid transparent;
   border-bottom: 1px solid #f3f3f3;
 }
 
-@media screen and (max-width: 414px) {
-  .l-header {
-    width: 100%;
-  }
-}
-
-@media screen and (max-width: 768px) {
+@media (max-width: 850px) {
   .l-header {
     width: 100%;
   }
@@ -208,7 +202,7 @@ img {
   line-height: 30px;
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 414px) {
   .l-header__site-title {
     font-size: 12px;
   }
@@ -237,7 +231,7 @@ img {
   margin-top: 5px;
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 414px) {
   .l-header__right .nav .user-icon .user-name {
     font-size: 12px;
   }
@@ -269,68 +263,56 @@ img {
   width: 100%;
   height: auto !important;
   min-height: 100vh;
-  padding: 0 10px 10px 10px;
   margin: 0 auto;
   box-sizing: border-box;
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
   display: -webkit-box;
   display: flex;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
           flex-direction: column;
 }
 
-.wrapper {
-  -webkit-box-flex: 1;
-          flex: 1;
-  display: -webkit-box;
-  display: flex;
-  width: 980px;
-  margin: 0 auto;
-}
-
-@media screen and (max-width: 768px) {
+@media (min-width: 850px) {
   .wrapper {
-    width: 720px;
+    display: -moz-flex;
+    display: -o-flex;
+    display: -ms-flex;
+    display: -webkit-box;
+    display: flex;
+    -moz-flex-direction: row;
+    -o-flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+    margin: 20px auto 0;
+    width: 980px;
+    min-height: 100vh;
   }
 }
 
-@media screen and (max-width: 414px) {
-  .wrapper {
-    -webkit-box-flex: 1;
-            flex: auto;
-    display: block;
-    width: auto;
-  }
-}
-
-.l-main {
-  position: relative;
-  height: 100vh;
-  width: 100vh;
-}
-
-@media screen and (max-width: 414px) {
+@media (min-width: 850px) {
   .l-main {
-    padding: 10px 0 0 30px;
-    width: 45vh;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .l-main {
-    width: 45vh;
+    -webkit-box-ordinal-group: 3;
+            order: 2;
+    width: 100%;
   }
 }
 
 .l-sidebar {
-  position: relative;
   padding: 0 30px 30px 30px;
-  float: left;
+  -webkit-box-ordinal-group: 2;
+          order: 1;
+  width: 30%;
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 850px) {
   .l-sidebar {
-    width: 85%;
+    width: 90%;
   }
 }
 
@@ -338,18 +320,7 @@ img {
   list-style-type: none;
   margin: 0;
   padding: 0;
-  width: 200px;
   background-color: #f5f5f5;
-  position: relative;
-  overflow: auto;
-}
-
-@media screen and (max-width: 414px) {
-  .l-sidebar .l-sidenav {
-    padding-right: 0;
-    padding-left: 0;
-    width: 300px;
-  }
 }
 
 .l-sidebar .l-sidenav li a {
@@ -367,6 +338,17 @@ img {
 .l-sidebar .l-sidenav li a:hover:not(.active) {
   background-color: #00aaf2;
   color: white;
+}
+
+.footer {
+  background-color: #f5f5f5;
+  padding: 30px 0 30px;
+  margin: 30px 0 auto;
+}
+
+.footer .copy {
+  margin: 30px 0 30px;
+  text-align: center;
 }
 
 .c-form__input {
@@ -541,7 +523,7 @@ a.btn-del:hover {
   border-top: 1px solid #cccccc;
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 414px) {
   .cp_tab {
     width: 100%;
     font-size: 0.8em;
@@ -601,7 +583,7 @@ a.btn-del:hover {
   width: 80px;
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 414px) {
   .balloon .faceicon {
     width: 60px;
   }
@@ -618,13 +600,13 @@ a.btn-del:hover {
   width: 540px;
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 414px) {
   .balloon .chatting {
     width: 330px;
   }
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
   .balloon .chatting {
     width: 450px;
   }
@@ -643,7 +625,7 @@ a.btn-del:hover {
   background: #d7ebfe;
 }
 
-@media screen and (max-width: 414px) {
+@media (max-width: 414px) {
   .says {
     margin: 5px 0 0 75px;
   }

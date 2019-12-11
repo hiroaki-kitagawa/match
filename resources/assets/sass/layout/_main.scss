@@ -1,32 +1,24 @@
+@media (min-width: 850px) {
 .wrapper {
-  flex: 1;
+  display: -moz-flex;
+  display: -webkit-flex;
+  display: -o-flex;
+  display: -ms-flex;
   display: flex;
+  -moz-flex-direction: row;
+  -webkit-flex-direction: row;
+  -o-flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  margin: $space_xl auto 0;
   width: $site-width;
-  margin: 0 auto;
-
-  @include mq($breakpoint: md) {
-    width: $site-width_tab;
-  }
-
-  @include mq() {
-    flex: auto;
-    display: block;
-    width: auto;
+  min-height: 100vh;
   }
 }
 
-.l-main {
-  position: relative;
-  height: 100vh;
-  width: 100vh;
-
-  @include mq() {
-    padding: 10px 0 0 30px;
-    width: 45vh;
+@media (min-width: 850px) {
+  .l-main {
+    order: 2;
+    width: 100%;
   }
-
-  @include mq($breakpoint: md) {
-    width: 45vh;
-  }
-
 }

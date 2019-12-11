@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('sidebar')
 <div class="l-main">
     <div class="cp_tab">
         <input type="radio" name="cp_tab" id="tab1_1" aria-controls="first_tab01" checked>

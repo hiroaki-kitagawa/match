@@ -3,10 +3,10 @@
 // ==============================
 
 // メディアクエリのブレークポイント設定
-$breakpoints: ('sm': 'screen and (max-width: 414px)',
-  'md': 'screen and (max-width: 768px)',
-  'lg': 'screen and (max-width: 1000px)',
-  'xl': 'screen and (max-width: 1200px)',
+$breakpoints: ('sm': '(max-width: 414px)',
+  'md': '(max-width: 768px)',
+  'lg': '(max-width: 1000px)',
+  'xl': '(max-width: 1200px)',
 ) !default;
 
 @mixin mq($breakpoint: sm) {
@@ -14,4 +14,3 @@ $breakpoints: ('sm': 'screen and (max-width: 414px)',
     @content;
   }
 }
-

@@ -25,7 +25,8 @@
                 const url = '/ajax/my_public_message?page='+ this.page;
                 axios.get(url)
                     .then((response) => {
-                        this.items = response.data;                });
+                        this.items = response.data;
+                });
             },
             movePage(page) {
                 this.page = page;

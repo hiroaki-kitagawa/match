@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('sidebar')
 <div class="l-main">
     <form action="../update/{{$job->id}}" method="POST">
         <h1 class="c-form__heading">お仕事を編集する</h1>

@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('sidebar')
 <div class="l-main">
     <h1 class="c-form__heading">お仕事を登録する</h1>
     <hr>

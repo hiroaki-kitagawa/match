@@ -1,7 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-@include('sidebar')
 <div class="l-main">
     <h1 class="c-form__heading">{{$job->title}}</h1>
     <hr>

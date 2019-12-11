@@ -2,18 +2,16 @@
   position: relative;
   margin: 0 auto;
   width: $site-width;
-  min-height: $space_3l;
+  min-height: $space_5l;
   margin-bottom: $space_l;
   border: 1px solid transparent;
   border-bottom: 1px solid #f3f3f3;
 
-  @include mq() {
+  @media (max-width: 850px) {
     width: 100%;
   }
 
-  @include mq($breakpoint: md) {
-    width: 100%;
-  }
+
 
   &__static-top {
     z-index: 100;

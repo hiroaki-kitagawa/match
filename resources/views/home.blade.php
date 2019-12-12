@@ -1,23 +1,21 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="cp_tab">
-        <input type="radio" name="cp_tab" id="tab1_1" aria-controls="first_tab01" checked>
-        <label for="tab1_1">すべて</label>
-        <input type="radio" name="cp_tab" id="tab1_2" aria-controls="second_tab01">
-        <label for="tab1_2">単発</label>
-        <input type="radio" name="cp_tab" id="tab1_3" aria-controls="third_tab01">
-        <label for="tab1_3">サービス開発</label>
-        <div class="cp_tabpanels">
-            <div id="first_tab01" class="cp_tabpanel">
-                <job-list ajaxpath="job_all"></job-list>
-            </div>
-            <div id="second_tab01" class="cp_tabpanel">
-                <job-list ajaxpath="job_single"></job-list>
-            </div>
-            <div id="third_tab01" class="cp_tabpanel">
-                <job-list ajaxpath="job_service"></job-list>
-            </div>
+<div class="l-main">
+    <div class="tab-wrap">
+        <input id="TAB-01" type="radio" name="TAB" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB-01">すべて</label>
+        <div class="tab-content">
+            <job-list ajaxpath="job_all"></job-list>
+        </div>
+        <input id="TAB-02" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-02">単発</label>
+        <div class="tab-content">
+            <job-list ajaxpath="job_single"></job-list>
+        </div>
+        <input id="TAB-03" type="radio" name="TAB" class="tab-switch" /><label class="tab-label" for="TAB-03">サービス開発</label>
+        <div class="tab-content">
+            <job-list ajaxpath="job_service"></job-list>
         </div>
     </div>
+</div>
+@include('sidebar')
 @endsection

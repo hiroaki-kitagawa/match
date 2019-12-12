@@ -43,7 +43,7 @@
             </div>
 
             <div class="form-label">
-                <button type="submit" class="btn-default" id="btn-submit">
+                <button type="submit" class="btn-default" id="">
                     {{ __('Login') }}
                 </button>
                 <a href="{{ route('password.request') }}">

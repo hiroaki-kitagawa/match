@@ -8,7 +8,11 @@
   border-bottom: 1px solid #f3f3f3;
 
   @media (max-width: 850px) {
-    width: 100%;
+    width: 95%;
+  }
+
+  @media (max-width: 320px) {
+    width: 95%;
   }
 
 
@@ -19,17 +23,31 @@
   }
   &__site-title {
     float: left;
-    padding: 15px 30px;
-    font-size: $font_size_l;
+    padding: 30px 0px 30px 30px;
+    font-size: $font_size_xl;
     line-height: $space_xxl;
 
-    @include mq() {
-      font-size: $font_size_s;
+    @media (max-width: 768px) {
+      padding: 20px 0px 30px 5px;
+      font-size: $font_size_m;
+    }
+    @media (max-width: 320px) {
+      padding: 20px 0px 30px 5px;
+      font-size: $font_size_m;
     }
   }
   &__right {
     float: right;
-    padding: 15px 30px;
+    font-size: $font_size_xl;
+    padding: 30px 0px 30px 0px;
+    @media (max-width: 768px) {
+      padding: 20px 5px 30px 0px;
+      font-size: $font_size_m;
+    }
+    @media (max-width: 320px) {
+      padding: 20px 5px 30px 0px;
+      font-size: $font_size_m;
+    }
     .nav {
       display: flex;
 
@@ -39,10 +57,8 @@
       .user-icon {
         display: flex;
         .user-name {
-          margin-top: 5px;
-          @include mq() {
-            font-size: $font_size_s;
-          }
+          margin-top: 3px;
+
         }
 
         .trim {
@@ -51,11 +67,17 @@
           overflow: hidden;
           width: 30px;
           height: 30px;
+          top: 5px;
           border-radius: 50%;
+
+          @media (max-width: 850px) {
+            top: -4px;
+          }
         }
 
         .trim img {
           position: absolute;
+          margin: 5px 0 -5px 0;
           top: 50%;
           left: 50%;
           transform: translate(-50%, -50%);

@@ -1,5 +1,7 @@
 <template>
     <div>
+        <h3>投稿案件に関する公開メッセージ一覧</h3>
+        <hr>
         <div v-for="item in items.data" :key="items.key">
             <a v-bind:href="'/jobs/' + item.job.id" target="_blank">＞案件名：{{ item.job.title }}</a> <br>
             <div>

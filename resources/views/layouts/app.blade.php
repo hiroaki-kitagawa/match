@@ -20,19 +20,13 @@
 </head>
 
 
-<body>
+<body ontouchstart="">
     <div id="app">
-        @include('layouts.header')
         <div class="container">
+            @include('layouts.header')
             <div class="wrapper">
-                <div class="l-main">
-                    <div class="main-box">
-                        @yield('content')
-                    </div>
-                </div>
-                @include('sidebar')
+                @yield('content')
             </div>
-            @include('layouts.footer')
         </div>
     </div>
 

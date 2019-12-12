@@ -1995,6 +1995,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
     return {
@@ -2032,6 +2034,8 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
 //
 //
 //
@@ -33266,6 +33270,10 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("h3", [_vm._v("ダイレクトメッセージ一覧")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _vm._l(_vm.items.data, function(item) {
         return _c("div", { key: _vm.items.key }, [
           _c("div", [
@@ -33327,6 +33335,10 @@ var render = function() {
   return _c(
     "div",
     [
+      _c("h3", [_vm._v("投稿案件に関する公開メッセージ一覧")]),
+      _vm._v(" "),
+      _c("hr"),
+      _vm._v(" "),
       _vm._l(_vm.items.data, function(item) {
         return _c("div", { key: _vm.items.key }, [
           _c(

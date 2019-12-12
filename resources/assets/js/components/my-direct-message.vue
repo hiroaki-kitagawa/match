@@ -1,5 +1,7 @@
 <template>
     <div>
+        <h3>ダイレクトメッセージ一覧</h3>
+        <hr>
         <div v-for="item in items.data" :key="items.key">
             <div>
                 送信者：{{ item.user.name }} <br>

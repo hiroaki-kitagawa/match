@@ -35,7 +35,6 @@
             </div>
         </form>
     </div>
-
-
 </div>
+@include('sidebar')
 @endsection

@@ -2,29 +2,25 @@
 
 @section('content')
 <div class="l-main">
-    <div class="cp_tab">
-        <input type="radio" name="cp_tab" id="tab1_1" aria-controls="first_tab01" checked>
-        <label for="tab1_1">登録済</label>
-        <input type="radio" name="cp_tab" id="tab1_2" aria-controls="second_tab01">
-        <label for="tab1_2">応募済</label>
-        <input type="radio" name="cp_tab" id="tab1_3" aria-controls="third_tab01">
-        <label for="tab1_3">公開メッセージ</label>
-        <input type="radio" name="cp_tab" id="tab1_4" aria-controls="force_tab01">
-        <label for="tab1_4">ダイレクトメッセージ</label>
-        <div class="cp_tabpanels">
-            <div id="first_tab01" class="cp_tabpanel">
-                <my-job-list ajaxpath="my_job_submit" login_id="{{Auth::id()}}"></my-job-list>
-            </div>
-            <div id="second_tab01" class="cp_tabpanel">
-                <job-list ajaxpath="my_job_applied" login_id="{{Auth::id()}}"></job-list>
-            </div>
-            <div id="third_tab01" class="cp_tabpanel">
-                <my-public-message></my-public-message>
-            </div>
-            <div id="force_tab01" class="cp_tabpanel">
-                <my-direct-message></my-direct-message>
-            </div>
+    <div class="tab-wrap">
+        <input id="TAB02-01" type="radio" name="TAB02" class="tab-switch" checked="checked" /><label class="tab-label" for="TAB02-01">登録済</label>
+        <div class="tab-content">
+            <my-job-list ajaxpath="my_job_submit" login_id="{{Auth::id()}}"></my-job-list>
+        </div>
+        <input id="TAB02-02" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label" for="TAB02-02">応募済</label>
+        <div class="tab-content">
+            <job-list ajaxpath="my_job_applied" login_id="{{Auth::id()}}"></job-list>
+        </div>
+        <input id="TAB02-03" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label" for="TAB02-03">PM</label>
+        <div class="tab-content">
+            <my-public-message></my-public-message>
+        </div>
+        <input id="TAB02-04" type="radio" name="TAB02" class="tab-switch" /><label class="tab-label" for="TAB02-04">DM</label>
+        <div class="tab-content">
+            <my-direct-message></my-direct-message>
         </div>
     </div>
+
 </div>
+@include('sidebar')
 @endsection

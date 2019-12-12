@@ -59,7 +59,7 @@
 
             <div  class="form-label"  class="form-group">
                 <div>
-                    <button type="submit" class="btn-default" id="btn-submit">
+                    <button type="submit" class="btn-default" id="">
                         {{ __('Register') }}
                     </button>
                 </div>

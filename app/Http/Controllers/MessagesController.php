@@ -11,7 +11,7 @@ use Session;
 
 class MessagesController extends Controller
 {
- 
+
     /**
      * Store a newly created resource in storage.
      *
@@ -29,7 +29,7 @@ class MessagesController extends Controller
         $message->text = $request->public_message;
         $message->save();
 
-        return redirect()->route('jobs.show', ['id' => $job_id]);
+        return back();
     }
 
     public function storeDM(Request $request)
@@ -67,7 +67,7 @@ class MessagesController extends Controller
         // メッセージ保存
         $message->save();
 
-        return redirect()->route('application.show', ['id' => $message->job_id]);
+        return back();
     }
 
 

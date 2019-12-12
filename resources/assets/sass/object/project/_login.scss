@@ -1,6 +1,9 @@
 .form-m0a {
-  width: 300px;
   margin: 0 auto;
+
+  @media (min-width: 769px) {
+    margin:0 300px
+  }
 }
 
 .form-login a {

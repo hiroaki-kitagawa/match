@@ -33034,7 +33034,7 @@ var render = function() {
           "div",
           { key: _vm.items.key },
           [
-            _c("a", { attrs: { href: "/jobs/" + item.id, target: "_blank" } }, [
+            _c("a", { attrs: { href: "/jobs/" + item.id } }, [
               _vm._v(">>案件名：" + _vm._s(item.title))
             ]),
             _vm._v(" "),
@@ -33141,7 +33141,7 @@ var render = function() {
           "div",
           { key: _vm.items.key },
           [
-            _c("a", { attrs: { href: "/jobs/" + item.id, target: "_blank" } }, [
+            _c("a", { attrs: { href: "/jobs/" + item.id } }, [
               _vm._v(">>案件名：" + _vm._s(item.title))
             ]),
             _vm._v(" "),
@@ -33282,16 +33282,9 @@ var render = function() {
             _vm._v("\n            " + _vm._s(item.text) + " "),
             _c("br"),
             _vm._v(" "),
-            _c(
-              "a",
-              {
-                attrs: {
-                  href: "/applications/" + item.apply_id,
-                  target: "_blank"
-                }
-              },
-              [_vm._v(">>" + _vm._s(item.user.name) + " さんとの取引情報")]
-            )
+            _c("a", { attrs: { href: "/applications/" + item.apply_id } }, [
+              _vm._v(">>" + _vm._s(item.user.name) + " さんとの取引情報")
+            ])
           ]),
           _vm._v(" "),
           _c("hr")
@@ -33341,11 +33334,9 @@ var render = function() {
       _vm._v(" "),
       _vm._l(_vm.items.data, function(item) {
         return _c("div", { key: _vm.items.key }, [
-          _c(
-            "a",
-            { attrs: { href: "/jobs/" + item.job.id, target: "_blank" } },
-            [_vm._v("＞案件名：" + _vm._s(item.job.title))]
-          ),
+          _c("a", { attrs: { href: "/jobs/" + item.job.id } }, [
+            _vm._v("＞案件名：" + _vm._s(item.job.title))
+          ]),
           _vm._v(" "),
           _c("br"),
           _vm._v(" "),

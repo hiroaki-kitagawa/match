@@ -1,7 +1,7 @@
 <template>
     <div>
         <div v-for="item in items.data" :key="items.key">
-            <a v-bind:href="'/jobs/' + item.id" target="_blank">>>案件名：{{ item.title }}</a> <br>
+            <a v-bind:href="'/jobs/' + item.id">>>案件名：{{ item.title }}</a> <br>
             ID: {{ item.id }} <br>
             投稿者： {{ item.user.name }} <br>
             内容：{{ item.detail }} <br>

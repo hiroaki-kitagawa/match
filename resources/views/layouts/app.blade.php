@@ -15,9 +15,11 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 
     <!-- フラッシュメッセージ -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.css">
+
 </head>
 
 
@@ -34,6 +36,9 @@
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1/i18n/jquery.ui.datepicker-ja.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
     <script>
@@ -50,15 +55,30 @@
             });
         @endif
 
-        function deletePost(e) {
+        function deletePost( e ) {
             'use strict';
-
-            if (confirm('本当に削除していいですか?')) {
-                document.getElementById('form_' + e.dataset.id).submit();
+            if ( confirm( '本当に削除していいですか?' ) ) {
+                document.getElementById( 'form_' + e.dataset.id ).submit();
             } else {
                 return false;
             }
         }
+
+        // 日付選択カレンダー
+        $( function () {
+            $.datepicker.setDefaults( $.datepicker.regional[ "ja" ] );
+            $( "#datepicker" ).datepicker({
+                dateFormat: 'yy-mm-dd',
+                constrainInput: true,
+                firstDay: 1,
+                showOtherMonths: true,
+                selectOtherMonts: true,
+                showButtonPanel: true,
+                changeYear: true,
+                changeMonth: true
+
+            });
+        } );
 
     </script>
 </body>

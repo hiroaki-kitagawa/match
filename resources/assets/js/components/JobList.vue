@@ -14,7 +14,7 @@
             </div>
             <div v-for="dealings in item.applications" :key="dealings.key">
                 <ul>
-                    <li><a v-bind:href="'/applications/' + dealings.id" target="_blank">>>{{ dealings.user_name }}さんとの取引情報</a></li>
+                    <li><a v-bind:href="'/applications/' + dealings.id">>>{{ dealings.user_name }}さんとの取引情報</a></li>
                 </ul>
             </div>
 

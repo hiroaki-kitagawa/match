@@ -26,10 +26,10 @@
         <div>
             {!! Form::label('reward', '報酬金額') !!}<br>
             <div class="c-form__inline-flex">
-                {!! Form::text('reward_min', $job->reward_min, ['class' => 'c-form__input c-form__input-digits']) !!}
-                〜
-                {!! Form::text('reward_max', $job->reward_max, ['class' => 'c-form__input c-form__input-digits']) !!}
-                円
+                {!! Form::text('reward_min', $job->reward_min / 1000, ['class' => 'c-form__input c-form__input-digits']) !!}
+                ,000〜
+                {!! Form::text('reward_max', $job->reward_max / 1000, ['class' => 'c-form__input c-form__input-digits']) !!}
+                ,000円
             </div>
         </div>
         <div>
@@ -38,7 +38,7 @@
         </div>
         <div>
             {!! Form::label('deadline', '応募期限') !!}
-            {!! Form::date('deadline', $job->deadline, ['class' => 'c-form__input c-form__input-date']) !!}
+            <input name="deadline" type="text" value="{{$job->deadline}}" id="datepicker" class="c-form__input c-form__input-date" readonly="readonly">
         </div>
 
         <br>

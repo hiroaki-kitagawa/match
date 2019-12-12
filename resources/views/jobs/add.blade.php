@@ -27,9 +27,9 @@
             {!! Form::label('reward', '報酬金額') !!}
             <div class="c-form__inline-flex">
                 {!! Form::text('reward_min', null, ['class' => 'c-form__input c-form__input-digits']) !!}
-                〜
+                ,000〜
                 {!! Form::text('reward_max', null, ['class' => 'c-form__input c-form__input-digits']) !!}
-                円
+                ,000円
             </div>
         </div>
         <div>
@@ -38,7 +38,7 @@
         </div>
         <div>
             {!! Form::label('deadline', '応募期限') !!}
-            {!! Form::date('deadline', null, ['class' => 'c-form__input c-form__input-date']) !!}
+            <input name="deadline" type="text" id="datepicker" class="c-form__input c-form__input-date" readonly="readonly">
         </div>
 
         <br>

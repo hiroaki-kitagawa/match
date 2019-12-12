@@ -33076,12 +33076,7 @@ var render = function() {
                   _c("li", [
                     _c(
                       "a",
-                      {
-                        attrs: {
-                          href: "/applications/" + dealings.id,
-                          target: "_blank"
-                        }
-                      },
+                      { attrs: { href: "/applications/" + dealings.id } },
                       [
                         _vm._v(
                           ">>" + _vm._s(dealings.user_name) + "さんとの取引情報"
@@ -33177,7 +33172,7 @@ var render = function() {
                     "a",
                     {
                       staticClass: "btn-default btn btn-edit",
-                      attrs: { href: "/jobs/edit/" + item.id, target: "_blank" }
+                      attrs: { href: "/jobs/edit/" + item.id }
                     },
                     [_vm._v("編集")]
                   ),
@@ -33210,12 +33205,7 @@ var render = function() {
                   _c("li", [
                     _c(
                       "a",
-                      {
-                        attrs: {
-                          href: "/applications/" + dealings.id,
-                          target: "_blank"
-                        }
-                      },
+                      { attrs: { href: "/applications/" + dealings.id } },
                       [
                         _vm._v(
                           ">>" + _vm._s(dealings.user_name) + "さんとの取引情報"

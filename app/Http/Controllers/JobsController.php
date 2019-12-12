@@ -61,8 +61,8 @@ class JobsController extends Controller
         $job->user_id = Auth::id();
         $job->title = $request->title;
         $job->type = $request->type;
-        $job->reward_min = $request->reward_min;
-        $job->reward_max = $request->reward_max;
+        $job->reward_min = $request->reward_min * 1000;
+        $job->reward_max = $request->reward_max * 1000;
         $job->status = '応募中';
         $job->detail = $request->detail;
         $job->deadline = $request->deadline;
@@ -157,8 +157,8 @@ class JobsController extends Controller
         $job->user_id = Auth::id();
         $job->title = $request->title;
         $job->type = $request->type;
-        $job->reward_min = $request->reward_min;
-        $job->reward_max = $request->reward_max;
+        $job->reward_min = $request->reward_min * 1000;
+        $job->reward_max = $request->reward_max * 1000;
         $job->status = '応募中';
         $job->detail = $request->detail;
         $job->deadline = $request->deadline;

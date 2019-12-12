@@ -10,7 +10,7 @@
             締切：あと{{ item.deadline | deadlinediff }}日({{ item.deadline }})<br>
 
             <div v-if="item.user_id" class="btn-block">
-                    <a class="btn-default btn btn-edit" v-bind:href="'/jobs/edit/' + item.id" target="_blank">編集</a>
+                    <a class="btn-default btn btn-edit" v-bind:href="'/jobs/edit/' + item.id">編集</a>
                     <a class="btn-default btn btn-del" v-bind:href="'#'" v-on:click="deletePost(item.id)">削除</a>
             </div>
 
@@ -19,7 +19,7 @@
             </div>
             <div v-for="dealings in item.applications" :key="dealings.key">
                 <ul>
-                    <li><a v-bind:href="'/applications/' + dealings.id" target="_blank">>>{{ dealings.user_name }}さんとの取引情報</a></li>
+                    <li><a v-bind:href="'/applications/' + dealings.id">>>{{ dealings.user_name }}さんとの取引情報</a></li>
                 </ul>
             </div>
 

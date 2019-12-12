@@ -278,13 +278,6 @@ img {
   }
 }
 
-@media (max-width: 320px) {
-  #menu {
-    width: 200px;
-    font-size: 12px;
-  }
-}
-
 #menu li {
   position: relative;
   width: 50%;
@@ -303,7 +296,7 @@ img {
   text-decoration: none;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 786px) {
   #menu li a {
     font-size: 12px;
   }
@@ -334,7 +327,7 @@ img {
   font-weight: normal;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 786px) {
   #menu li ul li a {
     font-size: 12px;
   }

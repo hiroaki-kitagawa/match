@@ -42,10 +42,7 @@
       padding: 20px 5px 30px 0px;
       font-size: $font_size_m;
     }
-    @media (max-width: 320px) {
-      padding: 20px 5px 30px 0px;
-      font-size: $font_size_m;
-    }
+
     .nav {
       position: relative;
       list-style: none;
@@ -87,7 +84,7 @@
 
 #menu li {
   position: relative;
-  width: 50%;
+  width: 55%;
   float: right;
   margin: 0;
   padding: 0;
@@ -105,9 +102,6 @@
       font-size: $font_size_s;
     }
 
-    // @media (max-width: 320px) {
-    //   font-size: $font_size_s;
-    // }
   }
 
   ul {

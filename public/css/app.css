@@ -271,9 +271,16 @@ img {
   z-index: 100;
 }
 
+@media (max-width: 786px) {
+  #menu {
+    width: 200px;
+    font-size: 14px;
+  }
+}
+
 @media (max-width: 320px) {
   #menu {
-    width: 220px;
+    width: 200px;
     font-size: 12px;
   }
 }

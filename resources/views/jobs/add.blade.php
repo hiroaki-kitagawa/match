@@ -19,11 +19,11 @@
             {!! Form::label('title', 'タイトル') !!}
             {!! Form::text('title',null, ['class' => 'c-form__input']) !!}
         </div>
-        <div>
+        <div id="select_type">
             {!! Form::label('type', '案件種別') !!}
             {!! Form::select('type', ['単発案件' => '単発案件','サービス開発案件' => 'サービス開発案件'],null, ['class' => 'c-form__input']) !!}
         </div>
-        <div>
+        <div id="reward_form">
             {!! Form::label('reward', '報酬金額') !!}
             <div class="c-form__inline-flex">
                 {!! Form::text('reward_min', null, ['class' => 'c-form__input c-form__input-digits']) !!}

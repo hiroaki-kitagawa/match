@@ -42,6 +42,9 @@ return [
     'exists'               => '指定された:attributeは存在しません。',
     'file'                 => ':attributeにはファイルを指定してください。',
     'filled'               => ':attributeには空でない値を指定してください。',
+    'gt'                  => [
+        'numeric' => ':attributeには報酬金額（下限）より大きい数値を指定してください。',
+    ],
     'image'                => ':attributeには画像ファイルを指定してください。',
     'in'                   => ':attributeには:valuesのうちいずれかの値を指定してください。',
     'in_array'             => ':attributeが:otherに含まれていません。',
@@ -50,6 +53,9 @@ return [
     'ipv4'                 => ':attributeには正しい形式のIPv4アドレスを指定してください。',
     'ipv6'                 => ':attributeには正しい形式のIPv6アドレスを指定してください。',
     'json'                 => ':attributeには正しい形式のJSON文字列を指定してください。',
+    'lt'                  => [
+        'numeric' => ':attributeには報酬金額（上限）より小さい数値を指定してください。',
+    ],
     'max'                  => [
         'numeric' => ':attributeには:max以下の数値を指定してください。',
         'file'    => ':attributeには:max KB以下のファイルを指定してください。',
@@ -124,8 +130,8 @@ return [
         'profile_image' => 'プロフィール画像',
         'title' => 'タイトル',
         'type' => '案件種別',
-        'reward_min' => '報酬金額(最小)',
-        'reward_max' => '報酬金額(最大)',
+        'reward_min' => '報酬金額(下限)',
+        'reward_max' => '報酬金額(上限)',
         'detail' => '内容',
         'deadline' => '応募期限',
     ],

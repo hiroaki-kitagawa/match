@@ -6,7 +6,12 @@
             投稿者： {{ item.user.name }} <br>
             内容：{{ item.detail }} <br>
             種別：{{ item.type }} <br>
-            報酬：{{ item.reward_min | moneyDelimiter }} 〜 {{ item.reward_max | moneyDelimiter  }} <br>
+            <div v-if="item.type === '単発案件'">
+                報酬：{{ item.reward_min | moneyDelimiter }} 〜 {{ item.reward_max | moneyDelimiter  }}円 <br>
+            </div>
+            <div v-else>
+                報酬：応相談
+            </div>
             締切：あと{{ item.deadline | deadlinediff }}日({{ item.deadline }})<br>
 
             <div v-if="item.user_id" class="btn-block">

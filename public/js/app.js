@@ -1864,6 +1864,11 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ['ajaxpath', 'login_id'],
   data: function data() {
@@ -1902,6 +1907,11 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+//
+//
+//
+//
+//
 //
 //
 //
@@ -33047,14 +33057,19 @@ var render = function() {
             _c("br"),
             _vm._v("\n        種別：" + _vm._s(item.type) + " "),
             _c("br"),
-            _vm._v(
-              "\n        報酬：" +
-                _vm._s(_vm._f("moneyDelimiter")(item.reward_min)) +
-                " 〜 " +
-                _vm._s(_vm._f("moneyDelimiter")(item.reward_max)) +
-                " "
-            ),
-            _c("br"),
+            _vm._v(" "),
+            item.type === "単発案件"
+              ? _c("div", [
+                  _vm._v(
+                    "\n            報酬：" +
+                      _vm._s(_vm._f("moneyDelimiter")(item.reward_min)) +
+                      " 〜 " +
+                      _vm._s(_vm._f("moneyDelimiter")(item.reward_max)) +
+                      "円 "
+                  ),
+                  _c("br")
+                ])
+              : _c("div", [_vm._v("\n            報酬：応相談\n        ")]),
             _vm._v(
               "\n        締切：あと" +
                 _vm._s(_vm._f("deadlinediff")(item.deadline)) +
@@ -33149,14 +33164,19 @@ var render = function() {
             _c("br"),
             _vm._v("\n        種別：" + _vm._s(item.type) + " "),
             _c("br"),
-            _vm._v(
-              "\n        報酬：" +
-                _vm._s(_vm._f("moneyDelimiter")(item.reward_min)) +
-                " 〜 " +
-                _vm._s(_vm._f("moneyDelimiter")(item.reward_max)) +
-                " "
-            ),
-            _c("br"),
+            _vm._v(" "),
+            item.type === "単発案件"
+              ? _c("div", [
+                  _vm._v(
+                    "\n            報酬：" +
+                      _vm._s(_vm._f("moneyDelimiter")(item.reward_min)) +
+                      " 〜 " +
+                      _vm._s(_vm._f("moneyDelimiter")(item.reward_max)) +
+                      "円 "
+                  ),
+                  _c("br")
+                ])
+              : _c("div", [_vm._v("\n            報酬：応相談\n        ")]),
             _vm._v(
               "\n        締切：あと" +
                 _vm._s(_vm._f("deadlinediff")(item.deadline)) +
@@ -45676,7 +45696,20 @@ var app = new Vue({
 
 $('#btn-submit').on('click', function () {
   $(this).css('pointer-events', 'none');
-});
+}); // 金額入力フォームの制御
+
+$(function () {
+  $('#select_type select[name="type"]').change(function () {
+    if ($('select[name="type"] option:selected').val() == '単発案件') {
+      $('#reward_form').show();
+    } else {
+      $('#reward_form').hide();
+      $('select[name="reward_min"]').val('');
+      $('select[name="reward_max"]').val('');
+    }
+  });
+}); // $( function () {
+// } );
 
 /***/ }),
 

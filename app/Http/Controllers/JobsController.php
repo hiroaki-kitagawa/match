@@ -47,14 +47,24 @@ class JobsController extends Controller
     public function store(Request $request)
     {
         // Validationをかける
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'type' => 'required|string',
-            'reward_min' => 'required|digits_between:1,15',
-            'reward_max' => 'required|digits_between:1,15',
-            'detail' => 'required|string|max:255',
-            'deadline' => 'required|date',
-        ]);
+        // dd($request->reward);
+        if($request->type == '単発案件') {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'type' => 'required|string',
+                'reward_min' => 'required|digits_between:1,15|lt:reward_max',
+                'reward_max' => 'required|digits_between:1,15|gt:reward_min',
+                'detail' => 'required|string|max:255',
+                'deadline' => 'required|date',
+                ]);
+        }else {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'type' => 'required|string',
+                'detail' => 'required|string|max:255',
+                'deadline' => 'required|date',
+                ]);
+        }
 
         // お仕事案件の新規登録ページから案件情報を保存(POST)する
         $job = new Job;
@@ -144,14 +154,25 @@ class JobsController extends Controller
     public function update(Request $request, $id)
     {
         // Validationをかける
-        $request->validate([
-            'title' => 'required|string|max:255',
-            'type' => 'required|string',
-            'reward_min' => 'required|digits_between:1,15',
-            'reward_max' => 'required|digits_between:1,15',
-            'detail' => 'required|string|max:255',
-            'deadline' => 'required|date',
-        ]);
+        if($request->type == '単発案件') {
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'type' => 'required|string',
+                'reward_min' => 'required|digits_between:1,15|lt:reward_max',
+                'reward_max' => 'required|digits_between:1,15|gt:reward_min',
+                'detail' => 'required|string|max:255',
+                'deadline' => 'required|date',
+                ]);
+        }else {
+            $request->reward_min = 0;
+            $request->reward_max = 0;
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'type' => 'required|string',
+                'detail' => 'required|string|max:255',
+                'deadline' => 'required|date',
+                ]);
+        }
 
         $job = Job::find($id);
         $job->user_id = Auth::id();

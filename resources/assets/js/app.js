@@ -48,3 +48,22 @@ $( '#btn-submit' ).on( 'click', function () {
     $( this ).css( 'pointer-events', 'none' );
 } );
 
+// 金額入力フォームの制御
+$( function () {
+    $( '#select_type select[name="type"]' ).change( function () {
+        if ( $( 'select[name="type"] option:selected' ).val() == '単発案件' )
+        {
+            $( '#reward_form' ).show();
+        }
+        else
+        {
+            $( '#reward_form' ).hide();
+            $( 'select[name="reward_min"]' ).val( '');
+            $( 'select[name="reward_max"]' ).val( '');
+        }
+    } );
+} );
+
+// $( function () {
+
+// } );

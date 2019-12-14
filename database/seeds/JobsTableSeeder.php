@@ -32,8 +32,8 @@ class JobsTableSeeder extends Seeder
                 'user_id' => '2',
                 'title' => 'テスト案件2',
                 'type' => 'サービス開発案件',
-                'reward_min' => '500000',
-                'reward_max' => '700000',
+                'reward_min' => '0',
+                'reward_max' => '0',
                 'status' => '応募中',
                 'detail' => 'テストサービス開発案件のお仕事です。',
                 'deadline' => $carbon->today()->addDays(30),
@@ -58,8 +58,8 @@ class JobsTableSeeder extends Seeder
                 'user_id' => '2',
                 'title' => 'テスト案件4',
                 'type' => 'サービス開発案件',
-                'reward_min' => '300000',
-                'reward_max' => '600000',
+                'reward_min' => '0',
+                'reward_max' => '0',
                 'status' => '終了',
                 'detail' => 'テストサービス開発案件のお仕事です。',
                 'deadline' => $carbon->today()->addDays(30),
@@ -67,6 +67,5 @@ class JobsTableSeeder extends Seeder
                 'updated_at' => date("Y-m-d H:i:s")
             ],
         ]);
-        // factory(App\Job::class, 100)->create();
     }
 }

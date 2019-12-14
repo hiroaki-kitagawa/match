@@ -23,7 +23,7 @@
             {!! Form::label('type', '案件種別') !!}<br>
             {!! Form::select('type', [ $job->type => $job->type, '単発案件' => '単発案件','サービス開発案件' => 'サービス開発案件'], null, ['class' => 'c-form__input']) !!}
         </div>
-        <div id="reward_form">
+        <div id="reward_form" style="display:none">
             {!! Form::label('reward', '報酬金額') !!}<br>
             <div class="c-form__inline-flex">
                 {!! Form::text('reward_min', $job->reward_min / 1000, ['class' => 'c-form__input c-form__input-digits']) !!}

@@ -36,8 +36,11 @@ class ApplicationController extends Controller
         $application->owner_id = $owner->id;
         $application->save();
 
+        $application_id = Application::where('owner_id', '=', $owner->id)->where('user_id', '=', $user_id)->get();
+
         // お仕事の投稿者に通知メール送信
-        \Notification::send($owner, new \App\Notifications\SendInvitation(\Auth::user()->name));
+        // \Notification::send($owner, new \App\Notifications\SendInvitation(\Auth::user()->name));
+        \Notification::send($owner, new SendInvitation($application_id));
 
         session()->flash('added_message', '応募しました');
         return redirect('application/' . $job_id);

@@ -8,7 +8,12 @@
     状態：{{$application[0]->job->status}} <br>
     種別：{{$application[0]->job->type}} <br>
     案件投稿者：{{ $owner_user->name }} <br>
-    報酬：{{ number_format($application[0]->job->reward_min) }}円〜{{ number_format($application[0]->job->reward_max) }}円 <br>
+    @if($application[0]->job->type == '単発案件')
+        報酬：{{ number_format($application[0]->job->reward_min) }}円〜{{ number_format($application[0]->job->reward_max) }}円
+    @else
+        報酬：応相談
+    @endif
+    <br>
     応募締切：{{ $application[0]->job->deadline }} <br>
     応募者：{{ $application[0]->user_name }}
 

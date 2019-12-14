@@ -24,11 +24,11 @@
             {!! Form::select('type', ['単発案件' => '単発案件','サービス開発案件' => 'サービス開発案件'],null, ['class' => 'c-form__input']) !!}
         </div>
         <div id="reward_form">
-            {!! Form::label('reward', '報酬金額') !!}
+            {!! Form::label('reward', '報酬金額') !!}<br>
             <div class="c-form__inline-flex">
-                {!! Form::text('reward_min', null, ['class' => 'c-form__input c-form__input-digits']) !!}
+                {!! Form::number('reward_min', null, ['class' => 'c-form__input c-form__input-digits']) !!}
                 ,000〜
-                {!! Form::text('reward_max', null, ['class' => 'c-form__input c-form__input-digits']) !!}
+                {!! Form::number('reward_max', null, ['class' => 'c-form__input c-form__input-digits']) !!}
                 ,000円
             </div>
         </div>

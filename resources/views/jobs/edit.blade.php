@@ -26,9 +26,9 @@
         <div id="reward_form" style="display:none">
             {!! Form::label('reward', '報酬金額') !!}<br>
             <div class="c-form__inline-flex">
-                {!! Form::text('reward_min', $job->reward_min / 1000, ['class' => 'c-form__input c-form__input-digits']) !!}
+                {!! Form::number('reward_min', $job->reward_min / 1000, ['class' => 'c-form__input c-form__input-digits']) !!}
                 ,000〜
-                {!! Form::text('reward_max', $job->reward_max / 1000, ['class' => 'c-form__input c-form__input-digits']) !!}
+                {!! Form::number('reward_max', $job->reward_max / 1000, ['class' => 'c-form__input c-form__input-digits']) !!}
                 ,000円
             </div>
         </div>

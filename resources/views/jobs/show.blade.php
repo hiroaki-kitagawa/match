@@ -8,7 +8,12 @@
     内容：{{$job->detail}} <br>
     状態：{{$job->status}} <br>
     種別：{{$job->type}} <br>
-    報酬：{{ number_format($job->reward_min) }}円〜{{ number_format($job->reward_max) }}円 <br>
+    @if($job->type == '単発案件')
+        報酬：{{ number_format($job->reward_min) }}円〜{{ number_format($job->reward_max) }}円
+    @else
+        報酬：応相談
+    @endif
+    <br>
     応募締切：{{$job->deadline}} <br>
 
     <div class="dp-bl">

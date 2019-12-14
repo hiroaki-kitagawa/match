@@ -41,8 +41,13 @@ class SendInvitation extends Notification
     public function toMail($notifiable)
     {
         $mail = new MailMessage();
+        // dd($this->user_name);
+        $url = url(config('app.url').'/applications/'.$this->user_name[0]->id);
+        // dd($url);
         $mail->subject('お仕事への応募通知')
-            ->line("{$this->user_name} さんがお仕事に応募しました。");
+            ->line("{$this->user_name[0]->user_name} さんがお仕事に応募しました。")
+            ->line("下のボタンをクリックすると、{$this->user_name[0]->user_name}さんとの取引画面を開きます。")
+            ->action('取引画面', $url);
         return $mail;
 
         // return (new MailMessage)

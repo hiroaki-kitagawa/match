@@ -33088,17 +33088,15 @@ var render = function() {
             _vm._l(item.applications, function(dealings) {
               return _c("div", { key: dealings.key }, [
                 _c("ul", [
-                  _c("li", [
-                    _c(
-                      "a",
-                      { attrs: { href: "/applications/" + dealings.id } },
-                      [
-                        _vm._v(
-                          ">>" + _vm._s(dealings.user_name) + "さんとの取引情報"
+                  dealings.user_id == _vm.login_id
+                    ? _c("li", [
+                        _c(
+                          "a",
+                          { attrs: { href: "/applications/" + dealings.id } },
+                          [_vm._v(">>取引情報")]
                         )
-                      ]
-                    )
-                  ])
+                      ])
+                    : _vm._e()
                 ])
               ])
             }),
@@ -33222,17 +33220,21 @@ var render = function() {
             _vm._l(item.applications, function(dealings) {
               return _c("div", { key: dealings.key }, [
                 _c("ul", [
-                  _c("li", [
-                    _c(
-                      "a",
-                      { attrs: { href: "/applications/" + dealings.id } },
-                      [
-                        _vm._v(
-                          ">>" + _vm._s(dealings.user_name) + "さんとの取引情報"
+                  dealings.owner_id == _vm.login_id
+                    ? _c("li", [
+                        _c(
+                          "a",
+                          { attrs: { href: "/applications/" + dealings.id } },
+                          [
+                            _vm._v(
+                              ">>" +
+                                _vm._s(dealings.user_name) +
+                                "さんとの取引情報"
+                            )
+                          ]
                         )
-                      ]
-                    )
-                  ])
+                      ])
+                    : _vm._e()
                 ])
               ])
             }),

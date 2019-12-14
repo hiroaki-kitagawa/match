@@ -19,6 +19,7 @@
     <div class="dp-bl">
         <a href="'https://twitter.com/share?text={{$job->title}}:{{$job->detail}}?ref_src=twsrc%5etfw'" class="twitter-share-button" data-show-count="false">tweet</a>
     </div>
+    <br>
 
     @if( $owner->id != Auth::id() )
         <div>
@@ -36,20 +37,39 @@
     @endif
 
     @foreach ($messages as $message)
-        <div class="balloon">
-            <div class="faceicon">
-                @if ($message->user->profile_image)
+        @if($message->user_id != Auth::id())
+            <div class="balloon1">
+                <div class="icon">
+                    @if ($message->user->profile_image)
                     <img src="{{ asset('storage/avatar/' . $message->user->profile_image) }}" />
-                @else
+                    @else
                     <img src="{{ asset('storage/avatar/' . 'noimage.png') }}" />
-                @endif
+                    @endif
+                </div>
+                {{$message->text}}
             </div>
-            <div class="chat-user-name">{{$message->user->name}}</div>
-            <div class="chatting">
-                <div class="says"><p>{{ $message->text }}</p></div>
+            <div class="icon_name-left">
+                {{$message->user->name}}
             </div>
-        </div>
+            <br><br>
+        @else
+            <div class="balloon2">
+                <div class="icon">
+                    @if ($message->user->profile_image)
+                        <img src="{{ asset('storage/avatar/' . $message->user->profile_image) }}" />
+                    @else
+                        <img src="{{ asset('storage/avatar/' . 'noimage.png') }}" />
+                    @endif
+                </div>
+                {{$message->text}}
+            </div>
+            <div class="icon_name-right">
+                {{$message->user->name}}
+            </div>
+            <br><br>
+        @endif
     @endforeach
+
     <div>
         <form action="../messages/store" method="POST">
             {{ csrf_field() }}

@@ -19,7 +19,7 @@
             </div>
             <div v-for="dealings in item.applications" :key="dealings.key">
                 <ul>
-                    <li><a v-bind:href="'/applications/' + dealings.id">>>{{ dealings.user_name }}さんとの取引情報</a></li>
+                    <li v-if="dealings.user_id == login_id"><a v-bind:href="'/applications/' + dealings.id">>>取引情報</a></li>
                 </ul>
             </div>
 

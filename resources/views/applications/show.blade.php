@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="l-main">
-    <h1 class="form-heading">取引画面</h1>
+    <h1 class="c-form__heading">取引画面</h1>
     <hr>
     案件名：{{ $application[0]->job->title }} <br>
     内容：{{ $application[0]->job->detail }} <br>
@@ -17,8 +17,41 @@
     <br>
     応募締切：{{ $application[0]->job->deadline }} <br>
     応募者：{{ $application[0]->user_name }}
-
+    <br><br>
     @foreach ($messages as $message)
+        @if($message->user_id != Auth::id())
+            <div class="balloon1">
+                <div class="icon">
+                    @if ($message->user->profile_image)
+                    <img src="{{ asset('storage/avatar/' . $message->user->profile_image) }}" />
+                    @else
+                    <img src="{{ asset('storage/avatar/' . 'noimage.png') }}" />
+                    @endif
+                </div>
+                {{$message->text}}
+            </div>
+            <div class="icon_name-left">
+                {{$message->user->name}}
+            </div>
+            <br><br>
+        @else
+            <div class="balloon2">
+                <div class="icon">
+                    @if ($message->user->profile_image)
+                        <img src="{{ asset('storage/avatar/' . $message->user->profile_image) }}" />
+                    @else
+                        <img src="{{ asset('storage/avatar/' . 'noimage.png') }}" />
+                    @endif
+                </div>
+                {{$message->text}}
+            </div>
+            <div class="icon_name-right">
+                {{$message->user->name}}
+            </div>
+            <br><br>
+        @endif
+    @endforeach
+    {{-- @foreach ($messages as $message)
         <div class="balloon">
             <div class="faceicon">
                 @if ($message->user->profile_image)
@@ -32,7 +65,7 @@
                 <div class="says"><p>{{ $message->text }}</p></div>
             </div>
         </div>
-    @endforeach
+    @endforeach --}}
 
     <div>
         <form action="../messages/storeDM" method="POST">

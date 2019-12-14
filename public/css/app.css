@@ -763,6 +763,105 @@ a.btn-del:hover {
   padding: 0;
 }
 
+/* 吹き出し本体 */
+
+.balloon1 {
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  color: #333;
+  background-color: #d7ebfe;
+  margin-left: 110px;
+  /* 左に余白を設ける */
+  /* 画像 - 絶対配置で左上に配置 */
+}
+
+.balloon1 .icon {
+  position: absolute;
+  left: -110px;
+  top: 0;
+  width: 65px;
+}
+
+@media (max-width: 850px) {
+  .balloon1 .icon {
+    width: 40px;
+  }
+}
+
+.icon_name-left {
+  float: left;
+  padding-left: 5px;
+  font-size: 12px;
+}
+
+/* 三角アイコン */
+
+.balloon1::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  left: -15px;
+  top: 20px;
+  border-right: 15px solid #d7ebfe;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+/* 吹き出し本体 */
+
+.balloon2 {
+  position: relative;
+  padding: 20px;
+  border-radius: 10px;
+  color: #333;
+  background-color: #f5f5f5;
+  margin-right: 110px;
+  /* 右に余白を設ける */
+  /* 画像 - 絶対配置で右上に配置 */
+}
+
+.balloon2 .icon {
+  position: absolute;
+  right: -110px;
+  top: 0;
+  op: 0;
+  width: 65px;
+}
+
+@media (max-width: 850px) {
+  .balloon2 .icon {
+    width: 40px;
+  }
+}
+
+.icon_name-right {
+  float: right;
+  padding-right: 5px;
+  font-size: 12px;
+}
+
+/* 三角アイコン */
+
+.balloon2::before {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 0;
+  height: 0;
+  right: -15px;
+  top: 20px;
+  border-left: 15px solid #f5f5f5;
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+}
+
+input[type=textarea][name=public_message] {
+  font-size: 16px;
+}
+
 .form-m0a {
   margin: 0 auto;
 }

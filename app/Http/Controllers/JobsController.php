@@ -108,10 +108,8 @@ class JobsController extends Controller
 
         // 応募状況を確認する
         // ApplicationsテーブルにJobIDとログインユーザIDを含むレコードがあれば応募済み
-        $check_user = Application::where('user_id', '=', Auth::id())->exists();
-        $check_job = Application::where('job_id', '=', $job->id)->exists();
-
-        if ( $check_user && $check_job )
+        $check_apply = Application::where('user_id', '=', Auth::id())->where('job_id', '=', $job->id)->exists();
+        if ( $check_apply )
         { // 応募済み
             $application_status = true;
         } else { // 未応募

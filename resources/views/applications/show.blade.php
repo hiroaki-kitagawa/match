@@ -2,8 +2,9 @@
 
 @section('content')
 <div class="l-main">
-    <h1 class="form-heading">{{ $application[0]->job->title }}</h1>
+    <h1 class="form-heading">取引画面</h1>
     <hr>
+    案件名：{{ $application[0]->job->title }} <br>
     内容：{{ $application[0]->job->detail }} <br>
     状態：{{$application[0]->job->status}} <br>
     種別：{{$application[0]->job->type}} <br>

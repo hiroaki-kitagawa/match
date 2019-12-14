@@ -43,7 +43,7 @@ class ApplicationController extends Controller
         \Notification::send($owner, new SendInvitation($application_id));
 
         session()->flash('added_message', '応募しました');
-        return redirect('application/' . $job_id);
+        return redirect('applications/' . $application_id[0]->id);
 
     }
 

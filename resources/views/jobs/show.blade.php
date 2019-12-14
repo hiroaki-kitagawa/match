@@ -19,7 +19,6 @@
     <div class="dp-bl">
         <a href="'https://twitter.com/share?text={{$job->title}}:{{$job->detail}}?ref_src=twsrc%5etfw'" class="twitter-share-button" data-show-count="false">tweet</a>
     </div>
-    <br>
 
     @if( $owner->id != Auth::id() )
         <div>
@@ -35,6 +34,7 @@
             @endif
         </div>
     @endif
+    <br><br>
 
     @foreach ($messages as $message)
         @if($message->user_id != Auth::id())

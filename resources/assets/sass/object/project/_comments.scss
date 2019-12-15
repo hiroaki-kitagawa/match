@@ -70,12 +70,12 @@
   border-radius: 10px;
   color: $font_color_default;
   background-color: #d7ebfe;
-  margin-left: 110px;
+  margin-left: 90px;
   /* 左に余白を設ける */
   /* 画像 - 絶対配置で左上に配置 */
   .icon {
     position: absolute;
-    left: -110px;
+    left: -90px;
     top: 0;
     width: 65px;
 
@@ -112,13 +112,13 @@
   border-radius: 10px;
   color: $font_color_default;
   background-color: $background-color_body;
-  margin-right: 110px;
+  margin-right: 90px;
   /* 右に余白を設ける */
 
   /* 画像 - 絶対配置で右上に配置 */
   .icon {
     position: absolute;
-    right: -110px;
+    right: -90px;
     top: 0;
     op: 0;
     width: 65px;
@@ -148,5 +148,3 @@
   border-top: 15px solid transparent;
   border-bottom: 15px solid transparent;
 }
-
-

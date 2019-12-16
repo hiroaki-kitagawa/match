@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'マイページ')
+@section('description', 'MATCH(マッチ)はエンジニア向けのお仕事案件を簡単にマッチングできるサービスです。自身がお仕事を投稿したり、他のお仕事に応募することができます。また、他の会員との公開チャットや応募者とのダイレクトメッセージによる取引も行えます。')
+
+
 @section('content')
 <div class="l-main">
     <div class="tab-wrap">

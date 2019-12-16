@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', '取引画面')
+@section('description', 'MATCH(マッチ)はエンジニア向けのお仕事案件を簡単にマッチングできるサービスです。お仕事の取引画面では、お仕事の投稿者と応募者間のみが閲覧可能なダイレクトメッセージを投稿できます。')
+
 @section('content')
 <div class="l-main">
     <h1 class="c-form__heading">取引画面</h1>

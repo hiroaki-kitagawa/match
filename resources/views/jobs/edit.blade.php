@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'お仕事情報の編集')
+
 @section('content')
 <div class="l-main">
     <form action="../update/{{$job->id}}" method="POST">

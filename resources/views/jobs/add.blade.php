@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'お仕事情報の登録')
+
 @section('content')
 <div class="l-main">
     <h1 class="c-form__heading">お仕事を登録する</h1>

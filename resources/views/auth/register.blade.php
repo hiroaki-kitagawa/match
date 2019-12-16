@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', '新規登録')
+
 @section('content')
 <div class="l-main form-m0a">
     <h1 class="c-form__heading">{{ __('Register') }}</h1>

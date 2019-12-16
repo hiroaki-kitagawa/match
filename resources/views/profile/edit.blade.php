@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'プロフィール')
+@section('description', 'MATCH(マッチ)はエンジニア向けのお仕事案件を簡単にマッチングできるサービスです。プロフィールにはアイコン画像と自己紹介文を登録できます。')
+
 @section('content')
 <div class="l-main">
     <h1 class="c-form__heading">プロフィール・設定変更</h1>

@@ -9,9 +9,19 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    @hasSection('title')
+        <title> @yield('title') | {{ config('app.name', 'MATCH') }}</title>
+    @else
+        <title>{{ config('app.nmae', 'MATCH')}}</title>
+    @endif
 
-    <!-- Styles -->
+    @hasSection ('description')
+        <meta name="description" content="@yield('description')">
+    @else
+        <meta name="description" content="MATCH(マッチ)はエンジニア向けのお仕事案件を簡単にマッチングできるサービスです。ホームページやLP作成などの単発案件からWebサービス構築などのサービス開発案件まで、エンジニア向けのお仕事を簡単に投稿・応募・取引できます。">
+    @endif
+    <meta name="keywords" content="仕事,リモートワーク,MATCH,マッチ,フリーランス,マッチング,クラウドソーシング">
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">

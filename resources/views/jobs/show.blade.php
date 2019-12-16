@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'お仕事情報')
+@section('description', 'MATCH(マッチ)はエンジニア向けのお仕事案件を簡単にマッチングできるサービスです。お仕事の情報ページでは、お仕事情報の確認、お仕事への応募、会員全員が閲覧可能なパブリックメッセージを投稿できます。')
+
 @section('content')
 <div class="l-main">
     <h1 class="c-form__heading">{{$job->title}}</h1>

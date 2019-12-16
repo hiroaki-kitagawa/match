@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'ホーム')
+
 @section('content')
 <div class="l-main">
     <div class="tab-wrap">

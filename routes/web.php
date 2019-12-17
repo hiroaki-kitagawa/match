@@ -11,17 +11,12 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('home');
-// });
 
-
+Route::get('/', function () {return  view('top'); });
+Route::get('/top', function () {return  view('top'); });
 
 Auth::routes();
-
 Route::group(['middleware' => 'auth'], function () {
-
-    Route::get('/', function() {return view('home');});
     Route::get('/home', 'HomeController@index')->name('home');
     Route::get('/mypage', function () {return  view('mypage'); });
 
@@ -58,4 +53,5 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::resource('password', 'PasswordController', ['only' => ['index', 'create',
     'store', 'show', 'edit', 'update', 'destroy']]);
+
 });

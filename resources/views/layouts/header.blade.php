@@ -1,9 +1,9 @@
 <header class="l-header header__static-top">
-    <div class="l-header__site-title" >
-        <a href="{{ url('/home') }}">
+    <h1 class="l-header__site-title" >
+        <a href="{{ url('/top') }}">
             {{ config('app.name', 'Laravel') }}
         </a>
-    </div>
+    </h1>
 
     <div class="l-header__right">
         <ul class="nav" id="menu">

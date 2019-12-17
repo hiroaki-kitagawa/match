@@ -585,6 +585,57 @@ a.btn-del:hover {
   display: flex;
 }
 
+.btn-animation-02 {
+  display: inline-block;
+  width: 200px;
+  text-align: center;
+  background-color: #00aaf2;
+  border: 2px solid #00aaf2;
+  font-size: 16px;
+  color: #00aaf2;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 10px 24px;
+  border-radius: 4px;
+  position: relative;
+}
+
+.btn-animation-02 span {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-animation-02::before,
+.btn-animation-02::after {
+  content: "";
+  display: block;
+  background-color: #FFF;
+  width: 50%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+.btn-animation-02::before {
+  left: 0;
+}
+
+.btn-animation-02::after {
+  right: 0;
+}
+
+.btn-animation-02:hover:before,
+.btn-animation-02:hover:after {
+  width: 0;
+  background-color: #FFF;
+}
+
+.btn-animation-02:hover {
+  color: #FFF;
+}
+
 .tab-wrap {
   display: -webkit-box;
   display: flex;
@@ -687,6 +738,85 @@ a.btn-del:hover {
   -webkit-transition: 0.3s;
   transition: 0.3s;
   color: #000;
+}
+
+.top-container {
+  display: -moz-flex;
+  display: -o-flex;
+  display: -ms-flex;
+  display: -webkit-box;
+  display: flex;
+  -moz-flex-direction: column;
+  -o-flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+}
+
+.p-top-button {
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.p-top {
+  position: relative;
+  overflow: hidden;
+  -moz-flex: 1;
+  -o-flex: 1;
+  -webkit-box-flex: 1;
+          flex: 1;
+}
+
+.p-top p {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  width: 75%;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 100px;
+  bottom: 20px;
+}
+
+@media screen and (min-width: 414px) and (max-width: 768px) {
+  .hero-title {
+    font-size: 48px;
+    bottom: 60px;
+  }
+}
+
+@media (max-width: 414px) {
+  .hero-title {
+    font-size: 16px;
+    bottom: 40px;
+  }
+}
+
+.hero-sub {
+  font-size: 22px;
+}
+
+@media screen and (min-width: 414px) and (max-width: 768px) {
+  .hero-sub {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 414px) {
+  .hero-sub {
+    font-size: 6px;
+  }
+}
+
+.p-top img {
+  width: 100%;
 }
 
 .balloon {

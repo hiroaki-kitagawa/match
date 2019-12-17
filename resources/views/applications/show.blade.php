@@ -54,21 +54,7 @@
             <br><br>
         @endif
     @endforeach
-    {{-- @foreach ($messages as $message)
-        <div class="balloon">
-            <div class="faceicon">
-                @if ($message->user->profile_image)
-                    <img src="{{ asset('storage/avatar/' . $message->user->profile_image) }}" />
-                @else
-                    <img src="{{ asset('storage/avatar/' . 'noimage.png') }}" />
-                @endif
-            </div>
-            <div class="chat-user-name">{{$message->user->name}}</div>
-            <div class="chatting">
-                <div class="says"><p>{{ $message->text }}</p></div>
-            </div>
-        </div>
-    @endforeach --}}
+
 
     <div>
         <form action="../messages/storeDM" method="POST">

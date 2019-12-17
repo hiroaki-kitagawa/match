@@ -740,19 +740,6 @@ a.btn-del:hover {
   color: #000;
 }
 
-.top-container {
-  display: -moz-flex;
-  display: -o-flex;
-  display: -ms-flex;
-  display: -webkit-box;
-  display: flex;
-  -moz-flex-direction: column;
-  -o-flex-direction: column;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-}
-
 .p-top-button {
   padding: 10px;
   margin: 0 auto;
@@ -761,10 +748,6 @@ a.btn-del:hover {
 .p-top {
   position: relative;
   overflow: hidden;
-  -moz-flex: 1;
-  -o-flex: 1;
-  -webkit-box-flex: 1;
-          flex: 1;
 }
 
 .p-top p {
